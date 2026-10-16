@@ -1,0 +1,296 @@
+{
+  "protocol": "round6_nested_cv_disease_long_grid_v1",
+  "frozen_on": "2026-10-15",
+  "motivation": "Second external review: nested selection in the cross-validation, training without the device-confounded Normal class, a multi-seed 100-epoch comparison including the free low-rank control, and a token-grid ablation separating grid size from dataset.",
+  "prior_exposure": [
+    "all round-2 to round-5 test results, including the round-4 cross-validation, the seed-42 100-epoch runs, the disease-only evaluation of the 11-class models and the MedMNIST+128 benchmarks"
+  ],
+  "not_a_blinded_holdout": true,
+  "arms": {
+    "psan": {
+      "name": "psan",
+      "atom_dropout": 0.2,
+      "atoms": 16
+    },
+    "psan_ad0": {
+      "name": "psan",
+      "atom_dropout": 0.0,
+      "atoms": 16
+    },
+    "gfnet_matched": {
+      "name": "gfnet_matched"
+    },
+    "lowrank16": {
+      "name": "lowrank",
+      "atoms": 16
+    }
+  },
+  "screening": {
+    "seed": 42,
+    "candidates": [
+      {
+        "id": "c0",
+        "lr": 0.0001,
+        "weight_decay": 0.001
+      },
+      {
+        "id": "c1",
+        "lr": 0.0003,
+        "weight_decay": 0.001
+      },
+      {
+        "id": "c2",
+        "lr": 0.0005,
+        "weight_decay": 0.05
+      }
+    ],
+    "epochs": 8,
+    "early_stopping": false,
+    "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order"
+  },
+  "nested_cv": {
+    "arms": [
+      "psan",
+      "psan_ad0",
+      "gfnet_matched",
+      "lowrank16"
+    ],
+    "folds": [
+      {
+        "test": 2,
+        "validation": 3,
+        "train": [
+          1,
+          4,
+          5
+        ]
+      },
+      {
+        "test": 3,
+        "validation": 4,
+        "train": [
+          1,
+          2,
+          5
+        ]
+      },
+      {
+        "test": 4,
+        "validation": 5,
+        "train": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "test": 5,
+        "validation": 1,
+        "train": [
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    "seed": 42,
+    "epochs": 30,
+    "patience": 10,
+    "selection": "re-screened on the training and validation folds of each outer fold; its test fold unused",
+    "reuse": "a fold that selects c2 reuses the round-4 cross-validation final of that arm and fold, which was trained with c2, seed 42 and the identical pipeline; other selections are trained here",
+    "reuse_directory": "results/round4/cv/canine_{arm}_c2_s42_cv{fold}",
+    "fold1": "the validation-selected seed-42 finals on the main split; their selection used only training folds 3-5 and validation fold 2",
+    "split_sha256": {
+      "2": "8b23e4dc6fc5f0ecf108e6d2251c54c25b18b01e9713cf08f4fffce76c6e2dbf",
+      "3": "df34377749ddab7b770f035b76d9aeae8ff6c3594f1118b24b696b304a42e8d5",
+      "4": "d98c57d8b236338b9bea2b85b4141020eb4d296454ccd7128f7e9fa5355715b3",
+      "5": "e3cb235fe78d70210b118d6d9c54a2633b474045e33df3915c0aab00379336e3"
+    }
+  },
+  "disease_only": {
+    "arms": [
+      "psan",
+      "gfnet_matched",
+      "lowrank16"
+    ],
+    "classes": [
+      "Blepharitis",
+      "Cataract",
+      "Conjunctivitis",
+      "Entropion",
+      "Epiphora",
+      "Eyelid_tumor",
+      "Non_ulcerative_keratitis",
+      "Nuclear_sclerosis",
+      "Pigmentary_keratitis",
+      "Ulcerative_keratitis"
+    ],
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "epochs": 30,
+    "patience": 10,
+    "data": "main split with every Normal image removed from training, validation and test; labels re-indexed",
+    "images": {
+      "train": 25916,
+      "val": 8639,
+      "test": 8639
+    },
+    "split_sha256": "c5f4407619ca4ac4accdf3880fe075bcfa88fd97e8a39fc6cc2c6ec4329cd57c"
+  },
+  "long_training": {
+    "runs": [
+      {
+        "arm": "psan",
+        "seed": 43
+      },
+      {
+        "arm": "psan",
+        "seed": 44
+      },
+      {
+        "arm": "gfnet_matched",
+        "seed": 43
+      },
+      {
+        "arm": "gfnet_matched",
+        "seed": 44
+      },
+      {
+        "arm": "lowrank16",
+        "seed": 42
+      },
+      {
+        "arm": "lowrank16",
+        "seed": 43
+      },
+      {
+        "arm": "lowrank16",
+        "seed": 44
+      }
+    ],
+    "candidate": "c2",
+    "epochs": 100,
+    "warmup_epochs": 3,
+    "early_stopping": false,
+    "selection": "best validation Macro F1 epoch, as in all rounds",
+    "seed42_reference": [
+      "results/round4/long/canine_psan_c2_s42_long100",
+      "results/round4/long/canine_gfnet_matched_c2_s42_long100"
+    ]
+  },
+  "grid128": {
+    "arms": [
+      "psan",
+      "gfnet_matched"
+    ],
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "epochs": 30,
+    "patience": 10,
+    "img_size": 128,
+    "token_grid": "8x8, 40 stored bins",
+    "resize": "every image is resized to 224x224 (the cached 224-pixel image where available, as in all canine runs) and then to 128x128 with the same bilinear interpolation",
+    "filter_parameters_per_block": {
+      "psan": 6272,
+      "gfnet_matched": 15360
+    }
+  },
+  "common": {
+    "batch_size": 128,
+    "num_workers": 6,
+    "ema_decay": 0.999,
+    "gradient_clip": 1.0,
+    "warmup_epochs": 3,
+    "stochastic_depth": 0.1,
+    "sampler": "inverse-square-root class-weighted replacement sampling",
+    "precision": "float32 tensors; CUDA matmul TF32 off; cuDNN convolution TF32 default",
+    "no_weight_decay": [
+      "norm",
+      "filter_real",
+      "filter_imag",
+      "mu",
+      "log_sigma",
+      "rho_raw",
+      "theta",
+      "log_amp",
+      "phi",
+      "w_real",
+      "w_imag",
+      "basis_real",
+      "basis_imag"
+    ]
+  },
+  "forbidden_selection_inputs": [
+    "test images",
+    "test labels",
+    "test predictions or metrics"
+  ],
+  "statistics": {
+    "bootstrap": 10000,
+    "ci": "paired percentile bootstrap over test visual groups; crossed group x seed bootstrap across seeds 42-44",
+    "correction": "Holm within each declared family",
+    "families": {
+      "nested_cv": [
+        "psan minus gfnet_matched",
+        "psan_ad0 minus gfnet_matched",
+        "psan minus lowrank16",
+        "psan_ad0 minus lowrank16"
+      ],
+      "disease_only": [
+        "psan minus gfnet_matched",
+        "psan minus lowrank16"
+      ],
+      "long_training": [
+        "psan minus gfnet_matched",
+        "psan minus lowrank16"
+      ],
+      "grid128": [
+        "psan minus gfnet_matched"
+      ]
+    },
+    "nested_cv_summary": "pooled out-of-fold Macro F1 over all 104,037 images with a paired bootstrap over all visual groups, and per-fold paired bootstraps",
+    "disease_only_metric": "Macro F1 over the ten disease classes; device-restricted rows are descriptive"
+  },
+  "replay": [
+    {
+      "exp": "ncv",
+      "arm": "psan",
+      "candidate": "c2",
+      "seed": 42,
+      "reference": "results/round4/cv/canine_psan_c2_s42_cv3"
+    },
+    {
+      "exp": "long",
+      "arm": "lowrank16",
+      "candidate": "c2",
+      "seed": 42,
+      "reference": "results/round4/final/canine_lowrank16_c2_s42_final"
+    },
+    {
+      "exp": "long",
+      "arm": "psan",
+      "candidate": "c2",
+      "seed": 42,
+      "reference": "results/round4/long/canine_psan_c2_s42_long100"
+    }
+  ],
+  "job_order": "disease and grid screening, their finals, nested-CV screening and finals, then the 100-epoch runs",
+  "checkpoint_retention": "best.pth kept; resume-only last.pth deleted after a completed run",
+  "concurrency": "up to two jobs per GPU, shared with other users; wall-clock times are not reported as cost",
+  "source_code_sha256": {
+    "experiments/round6.py": "38c899133437ce263f687c76157af1eafe6661a188e65c88e769abcdec806fb7",
+    "experiments/common.py": "0dbeae497d3d3bfeaa064b56a1af938da5a15cbb512acccebdaa33b7c0ea2a6d",
+    "experiments/training.py": "9b90040a70ba68089a16c4ba8de5653b4032509192f6f33e8e7edc5daae9a7b6",
+    "models/psan.py": "364682b9a49889004344312de268b16cb97085fbab369aea20e489453a805cd1",
+    "models/gfnet.py": "7589309b2e4e4602b61987a886d133357323ce151eb34575b8e31e2b84a1732f",
+    "models/lowrank.py": "dcc8470e4433a13cc547cb0e105cfa99533cb567497bc00f209318e7986642de",
+    "train/train_base.py": "5e6073e8e5c1eb17c687e4e3b75c948b91cc389902eb9e4a7904d9a164762337",
+    "evaluation_metrics.py": "fcaac9f698adb6a26e59d966773f8aad1400f4233c8faa8e27d2073c9fbdadca"
+  }
+}

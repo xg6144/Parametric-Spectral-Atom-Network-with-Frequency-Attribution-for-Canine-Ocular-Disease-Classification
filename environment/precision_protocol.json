@@ -1,0 +1,8 @@
+{
+  "dtype": "float32 tensors",
+  "training_and_main_evaluation": "frozen seed_all disables CUDA matmul TF32; cuDNN convolution TF32 default remains enabled",
+  "cudnn_allow_tf32_default": true,
+  "inference_observation": "selected PSAN diagnostic220: one argmax differs at batch8 vs128 with cuDNN TF32 enabled; controlled TF32-off replay removes this difference",
+  "original_results_preserved": true,
+  "diagnostic_replay": "results/attribution/810d46669d84/baseline_replay.json"
+}

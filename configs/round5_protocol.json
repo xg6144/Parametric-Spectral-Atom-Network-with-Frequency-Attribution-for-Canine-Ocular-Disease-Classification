@@ -1,0 +1,180 @@
+{
+  "protocol": "round5_scratch_backbones_v1",
+  "frozen_on": "2026-10-15",
+  "motivation": "The article compares models trained from scratch only. Five general-purpose backbones that had been evaluated only with ImageNet weights are trained from random initialization under the protocols of the scratch models, so that PSAN is compared with them on equal terms.",
+  "prior_exposure": [
+    "all round-2 to round-4 test results, including those of the same five architectures fine-tuned from ImageNet weights"
+  ],
+  "not_a_blinded_holdout": true,
+  "arms": {
+    "deit_scratch": {
+      "name": "deit",
+      "timm": "deit_tiny_patch16_224"
+    },
+    "convnext_scratch": {
+      "name": "convnext",
+      "timm": "convnext_atto"
+    },
+    "fastvit_t8_scratch": {
+      "name": "fastvit_t8",
+      "timm": "fastvit_t8"
+    },
+    "swin_scratch": {
+      "name": "swin",
+      "timm": "swin_tiny_patch4_window7_224"
+    },
+    "shvit_s1_scratch": {
+      "name": "shvit_s1",
+      "timm": "shvit_s1"
+    }
+  },
+  "initialization": "random (timm default initialization under seed_all(seed)); pretrained=False; no weights loaded",
+  "shared_preset": {
+    "arms": [
+      "deit_scratch",
+      "convnext_scratch",
+      "fastvit_t8_scratch",
+      "swin_scratch",
+      "shvit_s1_scratch"
+    ],
+    "candidate": "c0",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "epochs": 30,
+    "patience": 10,
+    "note": "identical to the shared preset of PSAN, GFNet and AFNO (c0 trained as a final)"
+  },
+  "screening": {
+    "arms": [
+      "deit_scratch",
+      "convnext_scratch",
+      "fastvit_t8_scratch",
+      "swin_scratch",
+      "shvit_s1_scratch"
+    ],
+    "seed": 42,
+    "candidates": [
+      {
+        "id": "c0",
+        "lr": 0.0001,
+        "weight_decay": 0.001
+      },
+      {
+        "id": "c1",
+        "lr": 0.0003,
+        "weight_decay": 0.001
+      },
+      {
+        "id": "c2",
+        "lr": 0.0005,
+        "weight_decay": 0.05
+      }
+    ],
+    "epochs": 8,
+    "early_stopping": false,
+    "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order"
+  },
+  "finals": {
+    "arms": [
+      "deit_scratch",
+      "convnext_scratch",
+      "fastvit_t8_scratch",
+      "swin_scratch",
+      "shvit_s1_scratch"
+    ],
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "epochs": 30,
+    "patience": 10,
+    "note": "an arm that selects c0 reuses its shared-preset runs (identical configuration)"
+  },
+  "common": {
+    "batch_size": 128,
+    "num_workers": 6,
+    "ema_decay": 0.999,
+    "gradient_clip": 1.0,
+    "warmup_epochs": 3,
+    "stochastic_depth": "0.1 (SHViT-S1 has no stochastic-depth argument in this timm version)",
+    "sampler": "inverse-square-root class-weighted replacement sampling",
+    "precision": "float32 tensors; CUDA matmul TF32 off; cuDNN convolution TF32 default",
+    "no_weight_decay": [
+      "norm",
+      "filter_real",
+      "filter_imag",
+      "mu",
+      "log_sigma",
+      "rho_raw",
+      "theta",
+      "log_amp",
+      "phi",
+      "w_real",
+      "w_imag",
+      "basis_real",
+      "basis_imag",
+      "every parameter with ndim <= 1 and every bias"
+    ]
+  },
+  "forbidden_selection_inputs": [
+    "test images",
+    "test labels",
+    "test predictions or metrics"
+  ],
+  "reference_runs": {
+    "shared": "shared-preset PSAN (atom dropout 0.2), seeds 42-44 of results/training",
+    "tuned": "validation-selected PSAN (atom dropout 0.2, selected c2), seeds 42-44 of rounds 2-3"
+  },
+  "statistics": {
+    "bootstrap": 10000,
+    "ci": "paired percentile bootstrap over test visual groups; crossed group x seed bootstrap across seeds 42-44",
+    "correction": "Holm within each declared family",
+    "families": {
+      "tuned_backbones": [
+        "tuned psan minus deit_scratch",
+        "tuned psan minus convnext_scratch",
+        "tuned psan minus fastvit_t8_scratch",
+        "tuned psan minus swin_scratch",
+        "tuned psan minus shvit_s1_scratch"
+      ],
+      "shared_backbones": [
+        "psan minus deit_scratch",
+        "psan minus convnext_scratch",
+        "psan minus fastvit_t8_scratch",
+        "psan minus swin_scratch",
+        "psan minus shvit_s1_scratch"
+      ]
+    },
+    "primary": "tuned_backbones",
+    "secondary": "shared_backbones"
+  },
+  "replay": [
+    {
+      "arm": "gfnet_matched",
+      "candidate": "c2",
+      "seed": 42,
+      "reference": "results/round3/tuning/final/canine_gfnet_matched_c2_s42_final"
+    },
+    {
+      "arm": "convnext_imagenet",
+      "candidate": "c2",
+      "seed": 42,
+      "reference": "results/tuning/trials/canine_convnext_c2_s42_screening"
+    }
+  ],
+  "checkpoint_retention": "best.pth kept; resume-only last.pth deleted after a completed run",
+  "concurrency": "up to two jobs per GPU, shared with other users; wall-clock times are reported only as observed",
+  "source_code_sha256": {
+    "experiments/round5.py": "8167526096e4c6a6425c929ad05cd30724e012b891371b5f715cd4543f5dde2f",
+    "experiments/common.py": "0dbeae497d3d3bfeaa064b56a1af938da5a15cbb512acccebdaa33b7c0ea2a6d",
+    "experiments/training.py": "9b90040a70ba68089a16c4ba8de5653b4032509192f6f33e8e7edc5daae9a7b6",
+    "models/psan.py": "364682b9a49889004344312de268b16cb97085fbab369aea20e489453a805cd1",
+    "models/gfnet.py": "7589309b2e4e4602b61987a886d133357323ce151eb34575b8e31e2b84a1732f",
+    "train/train_base.py": "5e6073e8e5c1eb17c687e4e3b75c948b91cc389902eb9e4a7904d9a164762337",
+    "evaluation_metrics.py": "fcaac9f698adb6a26e59d966773f8aad1400f4233c8faa8e27d2073c9fbdadca"
+  }
+}

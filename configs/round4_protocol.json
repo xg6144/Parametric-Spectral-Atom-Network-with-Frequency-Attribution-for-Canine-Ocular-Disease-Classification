@@ -1,0 +1,228 @@
+{
+  "protocol": "round4_lowrank_controls_cv_long_v1",
+  "frozen_on": "2026-10-14",
+  "motivation": "External review: separate the effect of parametric atoms from that of a generic rank-M factorization, cross-validate the validation-selected PSAN-versus-dense comparison, and check the comparison after longer training.",
+  "prior_exposure": [
+    "all round-2 and round-3 test results, including validation-selected PSAN, PSAN-AD0 and matched dense at seeds 42-44 and the MedMNIST+128 benchmarks"
+  ],
+  "not_a_blinded_holdout": true,
+  "arms": {
+    "psan": {
+      "name": "psan",
+      "atom_dropout": 0.2,
+      "atoms": 16
+    },
+    "psan_ad0": {
+      "name": "psan",
+      "atom_dropout": 0.0,
+      "atoms": 16
+    },
+    "gfnet_matched": {
+      "name": "gfnet_matched"
+    },
+    "lowrank16": {
+      "name": "lowrank",
+      "atoms": 16
+    },
+    "lowrank10": {
+      "name": "lowrank",
+      "atoms": 10
+    },
+    "fixedatom16": {
+      "name": "fixedatom",
+      "atoms": 16,
+      "atom_dropout": 0.0
+    }
+  },
+  "controls": {
+    "lowrank16": "PSAN backbone; every filter K = W B with a free complex basis B (16 x 14 x 8) and free W (192 x 16); B and W start from the initial PSAN-AD0 atoms and mixing weights of the same seed, so the initial network equals PSAN-AD0; 9,728 filter parameters per block; no dropout",
+    "lowrank10": "as lowrank16 with rank 10 (6,080 filter parameters per block, close to the 6,272 of PSAN); basis starts from Morlet-initialized 10-atom banks; non-filter tensors equal PSAN-AD0",
+    "fixedatom16": "PSAN-AD0 whose atom geometry (mu, log_sigma, rho_raw, theta, log_amp, phi) stays at its Morlet initialization; only the complex mixing weights of the filter are learned"
+  },
+  "screening": {
+    "arms": [
+      "lowrank16",
+      "lowrank10",
+      "fixedatom16"
+    ],
+    "seed": 42,
+    "candidates": [
+      {
+        "id": "c0",
+        "lr": 0.0001,
+        "weight_decay": 0.001
+      },
+      {
+        "id": "c1",
+        "lr": 0.0003,
+        "weight_decay": 0.001
+      },
+      {
+        "id": "c2",
+        "lr": 0.0005,
+        "weight_decay": 0.05
+      }
+    ],
+    "epochs": 8,
+    "early_stopping": false,
+    "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order"
+  },
+  "finals": {
+    "arms": [
+      "lowrank16",
+      "lowrank10",
+      "fixedatom16"
+    ],
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "epochs": 30,
+    "patience": 10
+  },
+  "outer_cv": {
+    "arms": [
+      "psan",
+      "psan_ad0",
+      "gfnet_matched",
+      "lowrank16"
+    ],
+    "folds": [
+      {
+        "test": 2,
+        "validation": 3,
+        "train": [
+          1,
+          4,
+          5
+        ]
+      },
+      {
+        "test": 3,
+        "validation": 4,
+        "train": [
+          1,
+          2,
+          5
+        ]
+      },
+      {
+        "test": 4,
+        "validation": 5,
+        "train": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "test": 5,
+        "validation": 1,
+        "train": [
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    "seed": 42,
+    "epochs": 30,
+    "patience": 10,
+    "candidates": {
+      "psan": "c2",
+      "psan_ad0": "c2",
+      "gfnet_matched": "c2",
+      "lowrank16": "round-4 selection"
+    },
+    "fold1": "the validation-selected seed-42 finals on the main split (fold 1 test, fold 2 validation)",
+    "split_sha256": {
+      "2": "8b23e4dc6fc5f0ecf108e6d2251c54c25b18b01e9713cf08f4fffce76c6e2dbf",
+      "3": "df34377749ddab7b770f035b76d9aeae8ff6c3594f1118b24b696b304a42e8d5",
+      "4": "d98c57d8b236338b9bea2b85b4141020eb4d296454ccd7128f7e9fa5355715b3",
+      "5": "e3cb235fe78d70210b118d6d9c54a2633b474045e33df3915c0aab00379336e3"
+    },
+    "caveat": "settings were selected on the main split, whose validation fold (fold 2) is the test fold of outer fold 2; no setting was selected on any outer test fold"
+  },
+  "long_training": {
+    "arms": [
+      "psan",
+      "psan_ad0",
+      "gfnet_matched"
+    ],
+    "seed": 42,
+    "candidate": "c2 (selected setting of all three arms)",
+    "epochs": 100,
+    "warmup_epochs": 3,
+    "early_stopping": false,
+    "selection": "best validation Macro F1 epoch, as in all rounds"
+  },
+  "common": {
+    "batch_size": 128,
+    "num_workers": 6,
+    "ema_decay": 0.999,
+    "gradient_clip": 1.0,
+    "warmup_epochs": 3,
+    "stochastic_depth": 0.1,
+    "sampler": "inverse-square-root class-weighted replacement sampling",
+    "precision": "float32 tensors; CUDA matmul TF32 off; cuDNN convolution TF32 default",
+    "no_weight_decay": [
+      "norm",
+      "filter_real",
+      "filter_imag",
+      "mu",
+      "log_sigma",
+      "rho_raw",
+      "theta",
+      "log_amp",
+      "phi",
+      "w_real",
+      "w_imag",
+      "basis_real",
+      "basis_imag"
+    ]
+  },
+  "forbidden_selection_inputs": [
+    "test images",
+    "test labels",
+    "test predictions or metrics"
+  ],
+  "statistics": {
+    "bootstrap": 10000,
+    "ci": "paired percentile bootstrap over test visual groups; crossed group x seed bootstrap across seeds",
+    "correction": "Holm within each declared family",
+    "families": {
+      "lowrank_controls": [
+        "psan-lowrank16",
+        "psan_ad0-lowrank16",
+        "psan_ad0-lowrank10",
+        "psan_ad0-fixedatom16",
+        "lowrank16-gfnet_matched"
+      ],
+      "outer_cv": [
+        "psan-gfnet_matched",
+        "psan_ad0-gfnet_matched",
+        "psan-lowrank16",
+        "psan_ad0-lowrank16"
+      ],
+      "long_training": [
+        "psan-gfnet_matched",
+        "psan_ad0-gfnet_matched"
+      ]
+    },
+    "outer_cv_summary": "per-fold paired bootstrap, and pooled out-of-fold Macro F1 over all 104,037 images with a paired bootstrap over all visual groups",
+    "long_training_note": "single seed: intervals reflect test-sample variation only"
+  },
+  "checkpoint_retention": "best.pth kept; resume-only last.pth deleted after a completed run",
+  "concurrency": "up to two jobs per GPU, shared with other users; wall-clock times are not reported as cost",
+  "source_code_sha256": {
+    "experiments/round4.py": "aea3528be56991c6f9e44d6c27a3e334ef66965e732d6df3eac2eaa18909865a",
+    "experiments/common.py": "0dbeae497d3d3bfeaa064b56a1af938da5a15cbb512acccebdaa33b7c0ea2a6d",
+    "experiments/training.py": "9b90040a70ba68089a16c4ba8de5653b4032509192f6f33e8e7edc5daae9a7b6",
+    "models/psan.py": "364682b9a49889004344312de268b16cb97085fbab369aea20e489453a805cd1",
+    "models/gfnet.py": "7589309b2e4e4602b61987a886d133357323ce151eb34575b8e31e2b84a1732f",
+    "models/lowrank.py": "dcc8470e4433a13cc547cb0e105cfa99533cb567497bc00f209318e7986642de",
+    "train/train_base.py": "5e6073e8e5c1eb17c687e4e3b75c948b91cc389902eb9e4a7904d9a164762337",
+    "evaluation_metrics.py": "fcaac9f698adb6a26e59d966773f8aad1400f4233c8faa8e27d2073c9fbdadca"
+  }
+}

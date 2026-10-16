@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "method": "sklearn.model_selection.StratifiedGroupKFold",
+  "scikit_learn_version": "1.7.2",
+  "fold_numbering": "one-based",
+  "n_splits": 5,
+  "shuffle": true,
+  "random_state": 42,
+  "audit_manifest": "/home/dongbeen/ML/Paper/PSAN/dedup_audit_v3_verified/dedup_manifest.csv",
+  "audit_manifest_sha256": "7cf92d537a569be75b92f4a54b780bea2f817564eedea17c95bd839d20cc29b2",
+  "data_root": "/home/dongbeen/ML/Paper/PSAN/data_deduplicated_v3",
+  "images": 104053,
+  "groups": 101819,
+  "visual_group_images": 26000,
+  "singleton_images": 78053,
+  "classes": [
+    "Blepharitis",
+    "Cataract",
+    "Conjunctivitis",
+    "Entropion",
+    "Epiphora",
+    "Eyelid_tumor",
+    "Non_ulcerative_keratitis",
+    "Normal",
+    "Nuclear_sclerosis",
+    "Pigmentary_keratitis",
+    "Ulcerative_keratitis"
+  ],
+  "class_to_idx": {
+    "Blepharitis": 0,
+    "Cataract": 1,
+    "Conjunctivitis": 2,
+    "Entropion": 3,
+    "Epiphora": 4,
+    "Eyelid_tumor": 5,
+    "Non_ulcerative_keratitis": 6,
+    "Normal": 7,
+    "Nuclear_sclerosis": 8,
+    "Pigmentary_keratitis": 9,
+    "Ulcerative_keratitis": 10
+  },
+  "per_fold": {
+    "1": {
+      "validation_images": 20811,
+      "training_images": 83242,
+      "validation_groups": 20357,
+      "class_counts": {
+        "Blepharitis": 471,
+        "Cataract": 2616,
+        "Conjunctivitis": 306,
+        "Entropion": 968,
+        "Epiphora": 1227,
+        "Eyelid_tumor": 268,
+        "Non_ulcerative_keratitis": 322,
+        "Normal": 12186,
+        "Nuclear_sclerosis": 576,
+        "Pigmentary_keratitis": 351,
+        "Ulcerative_keratitis": 1520
+      }
+    },
+    "2": {
+      "validation_images": 20771,
+      "training_images": 83282,
+      "validation_groups": 20363,
+      "class_counts": {
+        "Blepharitis": 506,
+        "Cataract": 2753,
+        "Conjunctivitis": 310,
+        "Entropion": 970,
+        "Epiphora": 1171,
+        "Eyelid_tumor": 297,
+        "Non_ulcerative_keratitis": 327,
+        "Normal": 12115,
+        "Nuclear_sclerosis": 547,
+        "Pigmentary_keratitis": 373,
+        "Ulcerative_keratitis": 1402
+      }
+    },
+    "3": {
+      "validation_images": 20844,
+      "training_images": 83209,
+      "validation_groups": 20366,
+      "class_counts": {
+        "Blepharitis": 468,
+        "Cataract": 2795,
+        "Conjunctivitis": 323,
+        "Entropion": 879,
+        "Epiphora": 1254,
+        "Eyelid_tumor": 285,
+        "Non_ulcerative_keratitis": 332,
+        "Normal": 12212,
+        "Nuclear_sclerosis": 568,
+        "Pigmentary_keratitis": 337,
+        "Ulcerative_keratitis": 1391
+      }
+    },
+    "4": {
+      "validation_images": 20825,
+      "training_images": 83228,
+      "validation_groups": 20367,
+      "class_counts": {
+        "Blepharitis": 492,
+        "Cataract": 2726,
+        "Conjunctivitis": 342,
+        "Entropion": 866,
+        "Epiphora": 1280,
+        "Eyelid_tumor": 281,
+        "Non_ulcerative_keratitis": 348,
+        "Normal": 12140,
+        "Nuclear_sclerosis": 552,
+        "Pigmentary_keratitis": 356,
+        "Ulcerative_keratitis": 1442
+      }
+    },
+    "5": {
+      "validation_images": 20802,
+      "training_images": 83251,
+      "validation_groups": 20366,
+      "class_counts": {
+        "Blepharitis": 477,
+        "Cataract": 2719,
+        "Conjunctivitis": 339,
+        "Entropion": 879,
+        "Epiphora": 1175,
+        "Eyelid_tumor": 282,
+        "Non_ulcerative_keratitis": 321,
+        "Normal": 12190,
+        "Nuclear_sclerosis": 601,
+        "Pigmentary_keratitis": 420,
+        "Ulcerative_keratitis": 1399
+      }
+    }
+  },
+  "invariants": {
+    "each_image_exactly_one_fold": true,
+    "each_group_exactly_one_fold": true,
+    "all_classes_in_every_fold": true
+  },
+  "fold_manifest": "/home/dongbeen/ML/Paper/PSAN/cv_splits/stratified_group_5fold.csv",
+  "fold_manifest_sha256": "4faeecc8e2de044f4f6a6ce2eaf1e33ee9ba55052a84c1e6e02ae0341ddb4b8c"
+}

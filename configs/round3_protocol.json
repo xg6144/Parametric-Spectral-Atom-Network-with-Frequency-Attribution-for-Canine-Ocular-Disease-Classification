@@ -1,0 +1,153 @@
+{
+  "protocol": "round3_controlled_dense_replication_external128_v1",
+  "frozen_on": "2026-10-14",
+  "motivation": "The round-2 frozen PSAN uses atom dropout 0.2 while the matched dense mixer has no filter dropout, and round-2 factorial runs showed lower Macro F1 with dropout under the 30-epoch budget. This follow-up gives the matched dense control and a no-dropout PSAN arm the same validation-only screening, replicates the round-2 selected settings over seeds, replicates the M32/M64 OFAT axis, and repeats the external architecture benchmarks at 128 pixels, where F=40 exceeds M=16.",
+  "prior_exposure": [
+    "canine common-preset test results of all round-2 runs, including PSAN AD0 versus matched dense (seeds 42-44)",
+    "canine seed-42 validation-selected test results of the eight round-2 arms",
+    "canine seed-42 OFAT M32/M64 test results",
+    "MedMNIST+64 common-preset test results of PSAN/GFNet/AFNO"
+  ],
+  "not_a_blinded_holdout": true,
+  "canine": {
+    "split_sha256": "943e11e906a9eb4e54fa9ecefeb37c8ca589c64f1d0b81e7c2471881e101cce7",
+    "screened_arms": [
+      "gfnet_matched",
+      "psan_ad0"
+    ],
+    "screening_seed": 42,
+    "screened_final_seeds": [
+      42,
+      43,
+      44
+    ],
+    "replicated_round2_selections": {
+      "psan": "c2",
+      "gfnet": "c2",
+      "afno": "c2"
+    },
+    "replication_seeds": [
+      43,
+      44
+    ],
+    "ofat_replication": {
+      "atoms": [
+        32,
+        64
+      ],
+      "atom_dropout": 0.0,
+      "seeds": [
+        43,
+        44
+      ],
+      "candidate": "c0 (common preset)",
+      "initialization": "non-filter tensors copied from an untrained PSAN M16 built from the same seed (round-2 OFAT donor rule)"
+    },
+    "c0_reuse": "a selected c0 final reuses the hash-verified identical common-preset run in results/training"
+  },
+  "external": {
+    "datasets": [
+      "dermamnist_c128",
+      "bloodmnist128",
+      "octmnist128"
+    ],
+    "arms": [
+      "psan",
+      "psan_ad0",
+      "gfnet_matched",
+      "gfnet",
+      "afno"
+    ],
+    "img_size": 128,
+    "patch": 16,
+    "token_grid": [
+      8,
+      8
+    ],
+    "frequency_bins": 40,
+    "atoms": 16,
+    "screening_seed": 42,
+    "final_seeds": [
+      42,
+      43,
+      44
+    ],
+    "dermamnist_c128": "corrected lesion-disjoint rows of results/external_data/dermamnist_c64_*_identity.csv mapped to the official 128-pixel rasters by official split and index",
+    "published_md5": {
+      "dermamnist_c128": "2defd784463fa5243564e855ed717de1",
+      "bloodmnist128": "adace1e0ed228fccda1f39692059dd4c",
+      "octmnist128": "0a97e76651ace45c5d943ee3f65b63ae"
+    }
+  },
+  "candidates": [
+    {
+      "id": "c0",
+      "lr": 0.0001,
+      "weight_decay": 0.001
+    },
+    {
+      "id": "c1",
+      "lr": 0.0003,
+      "weight_decay": 0.001
+    },
+    {
+      "id": "c2",
+      "lr": 0.0005,
+      "weight_decay": 0.05
+    }
+  ],
+  "screening_epochs": 8,
+  "final_epochs": 30,
+  "final_patience": 10,
+  "warmup_epochs": 3,
+  "batch_size": 128,
+  "num_workers": 6,
+  "ema_decay": 0.999,
+  "gradient_clip": 1.0,
+  "precision": "float32 tensors; CUDA matmul TF32 off; cuDNN convolution TF32 default",
+  "stochastic_depth": 0.1,
+  "sampler": "inverse-square-root class-weighted replacement sampling",
+  "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order",
+  "screening_early_stopping": false,
+  "forbidden_selection_inputs": [
+    "test images",
+    "test labels",
+    "test predictions or metrics"
+  ],
+  "statistics": {
+    "bootstrap": 10000,
+    "ci": "paired percentile bootstrap over visual groups (canine), lesions (corrected Derma) or images",
+    "across_seeds": "crossed bootstrap of evaluation groups and seed indices; seed-level paired t descriptive",
+    "correction": "Holm within each declared family",
+    "families": {
+      "canine_tuned": [
+        "psan-gfnet_matched",
+        "psan_ad0-gfnet_matched",
+        "psan-gfnet",
+        "psan-afno"
+      ],
+      "canine_ofat_replication": [
+        "M32-M16",
+        "M64-M16"
+      ],
+      "external_each_dataset": [
+        "psan-gfnet_matched",
+        "psan_ad0-gfnet_matched",
+        "psan-gfnet",
+        "psan-afno"
+      ]
+    }
+  },
+  "checkpoint_retention": "best.pth kept; resume-only last.pth deleted after a completed run to bound disk use",
+  "concurrency": "up to two jobs per GPU; wall-clock times are contended and not reported as cost",
+  "source_code_sha256": {
+    "experiments/round3.py": "49e3a95fcff7098c68d82b282c73f7d813402adfef6f0dd10956eb0cb01c372e",
+    "experiments/common.py": "0dbeae497d3d3bfeaa064b56a1af938da5a15cbb512acccebdaa33b7c0ea2a6d",
+    "experiments/training.py": "9b90040a70ba68089a16c4ba8de5653b4032509192f6f33e8e7edc5daae9a7b6",
+    "models/psan.py": "364682b9a49889004344312de268b16cb97085fbab369aea20e489453a805cd1",
+    "models/gfnet.py": "7589309b2e4e4602b61987a886d133357323ce151eb34575b8e31e2b84a1732f",
+    "models/afno.py": "517a076f9ec6f4110436d3d8671d323bd5f52d3b8d786d0d6fd20456b2c92642",
+    "train/train_base.py": "5e6073e8e5c1eb17c687e4e3b75c948b91cc389902eb9e4a7904d9a164762337",
+    "evaluation_metrics.py": "fcaac9f698adb6a26e59d966773f8aad1400f4233c8faa8e27d2073c9fbdadca"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "revision_protocol": "independently_reconstructed_union_visual_groups_train345_val2_test1_v2",
+  "img_size": 224,
+  "batch_size": 128,
+  "num_workers": 6,
+  "epochs": 30,
+  "warmup_epochs": 3,
+  "patience": 10,
+  "lr": 0.0001,
+  "weight_decay": 0.001,
+  "ema_decay": 0.999,
+  "ema_start_epoch": 1,
+  "gradient_clip": 1.0,
+  "precision": "float32",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "test_fold": 1,
+  "validation_fold": 2,
+  "train_folds": [
+    3,
+    4,
+    5
+  ],
+  "calibration_bins": 15,
+  "bootstrap_iterations": 1000,
+  "hyperparameter_configs_per_arm": 1,
+  "notes": "New equal-budget 30-epoch study; not a reproduction of the superseded 300-epoch 80/10/10 study. Batch128 is shared across arms and recorded; no test-guided tuning."
+}

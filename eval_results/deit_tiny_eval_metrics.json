@@ -1,0 +1,209 @@
+{
+  "config": {
+    "gpu_id": 2,
+    "data_dir": "dataset_split_dedup_phash0",
+    "split": "test",
+    "img_size": 224,
+    "batch_size": 64,
+    "num_workers": 8,
+    "seed": 42,
+    "num_classes": 11,
+    "ckpt_path": "train_results/deit_tiny/20260606_093808/best_deit_tiny.pth",
+    "weight_source": "auto",
+    "output_dir": "eval_results",
+    "model_tag": "deit_tiny",
+    "bootstrap": true,
+    "n_bootstrap": 1000,
+    "measure_latency": true,
+    "latency_warmup": 20,
+    "latency_iters": 100,
+    "latency_batch_size": 1
+  },
+  "ckpt_info": {
+    "path": "train_results/deit_tiny/20260606_093808/best_deit_tiny.pth",
+    "epoch": 61,
+    "best_macro_f1_at_train": 0.6141548756631502,
+    "weight_source": "eval_model"
+  },
+  "model_info": {
+    "backbone": "deit_tiny_patch16_224",
+    "total_params": 5526539,
+    "total_params_M": 5.526539,
+    "flops": 1079389440,
+    "flops_G": 1.07938944,
+    "macs": 539694720.0,
+    "macs_G": 0.53969472
+  },
+  "data_info": {
+    "split": "test",
+    "n_samples": 9086,
+    "classes": [
+      "Blepharitis",
+      "Cataract",
+      "Conjunctivitis",
+      "Entropion",
+      "Epiphora",
+      "Eyelid_tumor",
+      "Non_ulcerative_keratitis",
+      "Normal",
+      "Nuclear_sclerosis",
+      "Pigmentary_keratitis",
+      "Ulcerative_keratitis"
+    ]
+  },
+  "metrics": {
+    "accuracy": 0.7537970504072199,
+    "balanced_accuracy": 0.5945133956600537,
+    "macro_f1": 0.6058022949199386,
+    "weighted_f1": 0.7509285449404308,
+    "macro_precision": 0.6213971783224541,
+    "macro_recall": 0.5945133956600537,
+    "weighted_precision": 0.7498340429134349,
+    "weighted_recall": 0.7537970504072199,
+    "cohen_kappa": 0.695997489173414,
+    "mcc": 0.696186120771918,
+    "macro_auc_ovr": 0.9479974335736453,
+    "weighted_auc_ovr": 0.9642741881458182,
+    "macro_auc_ovo": 0.9296277264617929,
+    "per_class_auc": {
+      "Blepharitis": 0.94547332064975,
+      "Cataract": 0.9637456735803779,
+      "Conjunctivitis": 0.9308789343950986,
+      "Entropion": 0.9523735850029654,
+      "Epiphora": 0.9297030479698093,
+      "Eyelid_tumor": 0.9436634482047823,
+      "Non_ulcerative_keratitis": 0.9284721270009243,
+      "Normal": 0.9915313888235385,
+      "Nuclear_sclerosis": 0.9329160124177445,
+      "Pigmentary_keratitis": 0.9383226011525132,
+      "Ulcerative_keratitis": 0.970891630112593
+    },
+    "per_class_report": {
+      "Blepharitis": {
+        "precision": 0.6325136612021858,
+        "recall": 0.6223118279569892,
+        "f1-score": 0.6273712737127372,
+        "support": 744.0
+      },
+      "Cataract": {
+        "precision": 0.7681775259678942,
+        "recall": 0.8258883248730965,
+        "f1-score": 0.7959882583170255,
+        "support": 1970.0
+      },
+      "Conjunctivitis": {
+        "precision": 0.5511811023622047,
+        "recall": 0.5857740585774058,
+        "f1-score": 0.5679513184584178,
+        "support": 717.0
+      },
+      "Entropion": {
+        "precision": 0.6496674057649667,
+        "recall": 0.6260683760683761,
+        "f1-score": 0.6376496191512514,
+        "support": 468.0
+      },
+      "Epiphora": {
+        "precision": 0.5993031358885017,
+        "recall": 0.5180722891566265,
+        "f1-score": 0.555735056542811,
+        "support": 332.0
+      },
+      "Eyelid_tumor": {
+        "precision": 0.48951048951048953,
+        "recall": 0.3645833333333333,
+        "f1-score": 0.417910447761194,
+        "support": 192.0
+      },
+      "Non_ulcerative_keratitis": {
+        "precision": 0.5102040816326531,
+        "recall": 0.4225352112676056,
+        "f1-score": 0.4622496147919877,
+        "support": 355.0
+      },
+      "Normal": {
+        "precision": 0.9361910994764397,
+        "recall": 0.9389563505086971,
+        "f1-score": 0.937571686056038,
+        "support": 3047.0
+      },
+      "Nuclear_sclerosis": {
+        "precision": 0.4325153374233129,
+        "recall": 0.46381578947368424,
+        "f1-score": 0.44761904761904764,
+        "support": 304.0
+      },
+      "Pigmentary_keratitis": {
+        "precision": 0.5056179775280899,
+        "recall": 0.4090909090909091,
+        "f1-score": 0.45226130653266333,
+        "support": 220.0
+      },
+      "Ulcerative_keratitis": {
+        "precision": 0.7604871447902571,
+        "recall": 0.762550881953867,
+        "f1-score": 0.7615176151761518,
+        "support": 737.0
+      },
+      "accuracy": 0.7537970504072199,
+      "macro avg": {
+        "precision": 0.6213971783224541,
+        "recall": 0.5945133956600537,
+        "f1-score": 0.6058022949199386,
+        "support": 9086.0
+      },
+      "weighted avg": {
+        "precision": 0.7498340429134349,
+        "recall": 0.7537970504072199,
+        "f1-score": 0.7509285449404308,
+        "support": 9086.0
+      }
+    },
+    "bootstrap_ci": {
+      "accuracy": {
+        "mean": 0.753898745322474,
+        "std": 0.0045403140537929225,
+        "ci95_lower": 0.7454270305965222,
+        "ci95_upper": 0.7629319832709663
+      },
+      "balanced_accuracy": {
+        "mean": 0.5945100588161845,
+        "std": 0.007238371216722363,
+        "ci95_lower": 0.5809097775895298,
+        "ci95_upper": 0.6092605994288074
+      },
+      "macro_f1": {
+        "mean": 0.6054311293342464,
+        "std": 0.00727749077530443,
+        "ci95_lower": 0.5911943442845932,
+        "ci95_upper": 0.6206264265161299
+      },
+      "weighted_f1": {
+        "mean": 0.751020950311855,
+        "std": 0.004621753395661198,
+        "ci95_lower": 0.742437908609689,
+        "ci95_upper": 0.7601767590007649
+      },
+      "cohen_kappa": {
+        "mean": 0.6960891830341709,
+        "std": 0.005344284366128766,
+        "ci95_lower": 0.6859740794426383,
+        "ci95_upper": 0.7067720257887866
+      },
+      "macro_auc_ovr": {
+        "mean": 0.9479663797621034,
+        "std": 0.0016935493817164117,
+        "ci95_lower": 0.9445448309664143,
+        "ci95_upper": 0.9511036420568779
+      }
+    },
+    "latency": {
+      "batch_size": 1,
+      "mean_ms": 1.715982300156611,
+      "std_ms": 0.01736439854586613,
+      "p50_ms": 1.712797999061877,
+      "p95_ms": 1.7337218505417695,
+      "throughput_imgs_per_sec": 582.756593648276
+    }
+  }
+}

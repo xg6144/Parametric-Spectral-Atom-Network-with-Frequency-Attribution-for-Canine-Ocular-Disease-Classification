@@ -1,0 +1,17 @@
+{
+  "python": "3.13.13",
+  "packages": {
+    "torch": "2.11.0",
+    "torchvision": "0.26.0",
+    "timm": "1.0.26",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "pandas": "3.0.2",
+    "matplotlib": "3.10.8",
+    "medmnist": "3.0.2",
+    "fvcore": "0.1.5.post20221221"
+  },
+  "interpreter": "/home/dongbeen/anaconda3/envs/vision/bin/python",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35"
+}

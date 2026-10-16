@@ -1,0 +1,64 @@
+{
+  "protocol": "five_outer_visual_group_folds_with_separate_validation_v1",
+  "folds": [
+    {
+      "test": 1,
+      "validation": 2,
+      "train": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "test": 2,
+      "validation": 3,
+      "train": [
+        1,
+        4,
+        5
+      ]
+    },
+    {
+      "test": 3,
+      "validation": 4,
+      "train": [
+        1,
+        2,
+        5
+      ]
+    },
+    {
+      "test": 4,
+      "validation": 5,
+      "train": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "test": 5,
+      "validation": 1,
+      "train": [
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "models": [
+    "psan",
+    "gfnet",
+    "afno"
+  ],
+  "seed": 42,
+  "config": "common c0: LR1e-4 WD1e-3 batch128 fp32 max30 patience10",
+  "base_manifest_sha256": "943e11e906a9eb4e54fa9ecefeb37c8ca589c64f1d0b81e7c2471881e101cce7",
+  "settings": "same preset fixed before original main-test outcomes; no outer-test hyperparameter selection",
+  "fold1": "reuse verified identical completed main seed42 checkpoints without retraining",
+  "uncertainty": "fold SD is descriptive split variation; not seed SD or independent patient validation",
+  "previous_corpus_exposure": true,
+  "patient_independence_established": false,
+  "frozen_source_manifest_sha256": "895e8877cc260de239efe0fe70de4fe269f1f435c384f50c5bf4a773feeffd98"
+}

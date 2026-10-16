@@ -1,0 +1,53 @@
+{
+  "protocol": "round6_posthoc_disease_step_matched_v1",
+  "frozen_on": "2026-10-15",
+  "post_hoc": true,
+  "motivation": "The frozen round-6 disease-only comparison found PSAN below the dense and free low-rank controls. PSAN had selected c1 and both controls c2, and the disease-only runs received 42% of the optimizer steps of the 11-class runs, all of them peaking in their last epoch. This check trains all three arms with c2 and with as many optimizer steps as the 11-class 30-epoch runs.",
+  "prior_exposure": [
+    "all round-2 to round-6 test results, including the round-6 disease-only test results"
+  ],
+  "arms": [
+    "psan",
+    "gfnet_matched",
+    "lowrank16"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "candidate": "c2",
+  "epochs": 72,
+  "warmup_epochs": 7,
+  "early_stopping": false,
+  "steps": {
+    "disease_train_images": 25916,
+    "eleven_class_train_images": 62422,
+    "disease_steps": 14616,
+    "eleven_class_steps": 14640,
+    "disease_warmup_steps": 1421,
+    "eleven_class_warmup_steps": 1464
+  },
+  "unchanged": "data (round-6 disease-only split and labels), sampler, augmentation, optimizer, EMA, gradient clipping, checkpoint rule and training loop of experiments.round6.train",
+  "statistics": {
+    "bootstrap": 10000,
+    "ci": "crossed group x seed bootstrap across seeds 42-44",
+    "correction": "Holm within the post hoc family",
+    "family": [
+      "psan minus gfnet_matched",
+      "psan minus lowrank16"
+    ]
+  },
+  "concurrency": "one job per GPU in addition to the round-6 workers",
+  "source_code_sha256": {
+    "experiments/round6_posthoc.py": "282c7ee8732b87de209c8a2e3aba20eb55e5f8aed3483dc4471f0011745471a0",
+    "experiments/round6.py": "38c899133437ce263f687c76157af1eafe6661a188e65c88e769abcdec806fb7",
+    "experiments/common.py": "0dbeae497d3d3bfeaa064b56a1af938da5a15cbb512acccebdaa33b7c0ea2a6d",
+    "experiments/training.py": "9b90040a70ba68089a16c4ba8de5653b4032509192f6f33e8e7edc5daae9a7b6",
+    "models/psan.py": "364682b9a49889004344312de268b16cb97085fbab369aea20e489453a805cd1",
+    "models/gfnet.py": "7589309b2e4e4602b61987a886d133357323ce151eb34575b8e31e2b84a1732f",
+    "models/lowrank.py": "dcc8470e4433a13cc547cb0e105cfa99533cb567497bc00f209318e7986642de",
+    "train/train_base.py": "5e6073e8e5c1eb17c687e4e3b75c948b91cc389902eb9e4a7904d9a164762337",
+    "evaluation_metrics.py": "fcaac9f698adb6a26e59d966773f8aad1400f4233c8faa8e27d2073c9fbdadca"
+  }
+}

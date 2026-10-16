@@ -1,0 +1,16 @@
+{
+  "scope": "follow-up correction families; earlier round1 test outcomes already exist",
+  "primary_family": 18,
+  "primary_plan": "core GFNet/AFNO contrasts at seeds42–46 (10); matched dense seeds42–44 (3); five pretrained backbones seed42 (5)",
+  "ofat_family": 10,
+  "factorial_family": 24,
+  "factorial_plan": "four simple and three joint effects per seed42–44 (21), plus three across-seed crossed-bootstrap joint effects",
+  "tuned_family": 7,
+  "tuned_plan": "selected PSAN versus each of seven selected baseline arms, seed42",
+  "bootstrap_iterations": 1000,
+  "bootstrap_seed": 42,
+  "correction": "Bonferroni, including planned comparisons if any are not completed",
+  "p_definition": "smoothed two-sided bootstrap tail probability; approximate, not exact randomization",
+  "across_seed_interval": "crossed resampling of the same visual groups and three factorial seed indices; empirical three-seed uncertainty, not a well-estimated population interval",
+  "patient_dependence": "unknown dog dependence is not covered"
+}

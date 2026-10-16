@@ -1,0 +1,69 @@
+{
+  "protocol": "round6_factorial_disease_v1",
+  "frozen_on": "2026-10-16",
+  "post_hoc": true,
+  "motivation": "The step-matched post hoc disease-only check changed the setting of PSAN (c1 to c2) and the training length (30 to 72 epochs) together. These runs complete the 2 x 2 design of setting and length for PSAN so that the two changes can be separated.",
+  "prior_exposure": [
+    "all round-2 to round-6 test results, including the frozen disease-only results and the post hoc step-matched disease-only results"
+  ],
+  "arm": "psan",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "cells": {
+    "c2_30": {
+      "candidate": "c2",
+      "epochs": 30,
+      "warmup_epochs": 3,
+      "patience": 10
+    },
+    "c1_72": {
+      "candidate": "c1",
+      "epochs": 72,
+      "warmup_epochs": 7,
+      "patience": null
+    }
+  },
+  "existing_cells": {
+    "c1_30": "results/round6/disease/final (frozen round-6 protocol)",
+    "c2_72": "results/round6_posthoc/disease/final (post hoc protocol)"
+  },
+  "controls": {
+    "c2_30": "gfnet_matched and lowrank16 in results/round6/disease/final (frozen round-6 protocol)",
+    "c2_72": "gfnet_matched and lowrank16 in results/round6_posthoc/disease/final (post hoc protocol)"
+  },
+  "unchanged": "data (round-6 disease-only split and labels), sampler, augmentation, optimizer, EMA, gradient clipping, checkpoint rule and training loop of experiments.round6.train",
+  "statistics": {
+    "bootstrap": 10000,
+    "ci": "crossed group x seed bootstrap across seeds 42-44",
+    "families": {
+      "psan_vs_controls": [
+        "psan c2_30 minus gfnet_matched c2_30",
+        "psan c2_30 minus lowrank16 c2_30",
+        "psan c1_72 minus gfnet_matched c2_72",
+        "psan c1_72 minus lowrank16 c2_72"
+      ],
+      "psan_factorial": [
+        "psan c2_30 minus psan c1_30",
+        "psan c2_72 minus psan c1_72",
+        "psan c1_72 minus psan c1_30",
+        "psan c2_72 minus psan c2_30"
+      ]
+    },
+    "correction": "Holm within each family"
+  },
+  "concurrency": "up to two jobs per GPU on four otherwise idle GPUs",
+  "source_code_sha256": {
+    "experiments/round6_factorial.py": "9c5e0f868c444c85df2f2b1c3f057b8c7a3c2dd6a4a122dfff8e8a850ba89a83",
+    "experiments/round6.py": "38c899133437ce263f687c76157af1eafe6661a188e65c88e769abcdec806fb7",
+    "experiments/common.py": "0dbeae497d3d3bfeaa064b56a1af938da5a15cbb512acccebdaa33b7c0ea2a6d",
+    "experiments/training.py": "9b90040a70ba68089a16c4ba8de5653b4032509192f6f33e8e7edc5daae9a7b6",
+    "models/psan.py": "364682b9a49889004344312de268b16cb97085fbab369aea20e489453a805cd1",
+    "models/gfnet.py": "7589309b2e4e4602b61987a886d133357323ce151eb34575b8e31e2b84a1732f",
+    "models/lowrank.py": "dcc8470e4433a13cc547cb0e105cfa99533cb567497bc00f209318e7986642de",
+    "train/train_base.py": "5e6073e8e5c1eb17c687e4e3b75c948b91cc389902eb9e4a7904d9a164762337",
+    "evaluation_metrics.py": "fcaac9f698adb6a26e59d966773f8aad1400f4233c8faa8e27d2073c9fbdadca"
+  }
+}
