@@ -1,0 +1,67 @@
+{
+  "protocol": "equal_budget_validation_only_followup_v1",
+  "frozen_before_candidate_outcomes": true,
+  "models": [
+    "psan",
+    "gfnet",
+    "afno",
+    "deit",
+    "convnext",
+    "fastvit_t8",
+    "swin",
+    "shvit_s1"
+  ],
+  "candidates": [
+    {
+      "id": "c0",
+      "lr": 0.0001,
+      "weight_decay": 0.001
+    },
+    {
+      "id": "c1",
+      "lr": 0.0003,
+      "weight_decay": 0.001
+    },
+    {
+      "id": "c2",
+      "lr": 0.0005,
+      "weight_decay": 0.05
+    }
+  ],
+  "seed": 42,
+  "screening_epochs": 8,
+  "final_epochs": 30,
+  "warmup_epochs": 3,
+  "batch_size": 128,
+  "num_workers": 6,
+  "img_size": 224,
+  "ema_decay": 0.999,
+  "final_patience": 10,
+  "gradient_clip": 1.0,
+  "precision": "float32",
+  "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order",
+  "screening_early_stopping": false,
+  "final_default_reuse": "reuse a hash-verified completed identical shared-preset run if c0 wins",
+  "selection_inputs": [
+    "training images and labels",
+    "validation images and labels"
+  ],
+  "forbidden_selection_inputs": [
+    "test images",
+    "test labels",
+    "test predictions or metrics"
+  ],
+  "split_sha256": "943e11e906a9eb4e54fa9ecefeb37c8ca589c64f1d0b81e7c2471881e101cce7",
+  "source_code_sha256": {
+    "experiments/validation_tuning.py": "cf6b0cf801f6d5453eb20d72c039772943adb205546da8d3f5b4afad2822d1ba",
+    "experiments/training.py": "9b90040a70ba68089a16c4ba8de5653b4032509192f6f33e8e7edc5daae9a7b6",
+    "experiments/common.py": "cec56b9730539dcc9485a3f1ebe8ed351b150ee28943604ad8d3ce157d7483c6",
+    "models/psan.py": "364682b9a49889004344312de268b16cb97085fbab369aea20e489453a805cd1",
+    "models/gfnet.py": "7589309b2e4e4602b61987a886d133357323ce151eb34575b8e31e2b84a1732f",
+    "models/afno.py": "517a076f9ec6f4110436d3d8671d323bd5f52d3b8d786d0d6fd20456b2c92642",
+    "train/train_base.py": "5e6073e8e5c1eb17c687e4e3b75c948b91cc389902eb9e4a7904d9a164762337"
+  },
+  "stochastic_depth": "0.1 for supported models; SHViT constructor has no stochastic-depth option",
+  "scope": "same candidate/epoch/update budget, not a proof of optimal tuning or equal wall time",
+  "prior_holdout_exposure": "shared-preset test results already exist; no new blinded holdout claim"
+}

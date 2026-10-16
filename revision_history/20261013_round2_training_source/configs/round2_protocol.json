@@ -1,0 +1,36 @@
+{
+  "protocol": "follow-up revision; frozen before new-run results",
+  "core_additional_seeds": [
+    45,
+    46
+  ],
+  "factorial_seeds": [
+    42,
+    43,
+    44
+  ],
+  "matched_seeds": [
+    42,
+    43,
+    44
+  ],
+  "oct_seeds": [
+    42,
+    43,
+    44
+  ],
+  "blood_seeds": [
+    42,
+    43,
+    44
+  ],
+  "modern_baseline": "shvit_s1 ImageNet-1k",
+  "unchanged_split_sha256": "943e11e906a9eb4e54fa9ecefeb37c8ca589c64f1d0b81e7c2471881e101cce7",
+  "unchanged_training_budget": "30 maximum epochs, common128/fp32 settings",
+  "separation": "earlier test observations exist; new hyperparameter selection uses validation only; no blinded-unseen-holdout claim",
+  "source_code_sha256": {
+    "experiments/training.py": "9b90040a70ba68089a16c4ba8de5653b4032509192f6f33e8e7edc5daae9a7b6",
+    "experiments/common.py": "cec56b9730539dcc9485a3f1ebe8ed351b150ee28943604ad8d3ce157d7483c6",
+    "experiments/round2_queue.py": "cf5a3fac41e8b9e450422c00bf475296c62593932a06362efce63e0f3f5a5240"
+  }
+}

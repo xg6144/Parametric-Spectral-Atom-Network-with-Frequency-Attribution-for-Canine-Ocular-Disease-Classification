@@ -1,0 +1,20 @@
+{
+  "revision_protocol": "official_medmnist_plus_64",
+  "img_size": 64,
+  "batch_size": 128,
+  "num_workers": 4,
+  "epochs": 30,
+  "warmup_epochs": 3,
+  "patience": 10,
+  "lr": 0.0001,
+  "weight_decay": 0.001,
+  "ema_decay": 0.999,
+  "ema_start_epoch": 1,
+  "gradient_clip": 1.0,
+  "precision": "float32",
+  "seeds": [42,43,44],
+  "calibration_bins": 15,
+  "bootstrap_iterations": 1000,
+  "hyperparameter_configs_per_arm": 1,
+  "notes": "Official MedMNIST+64 data; models constructed at 64, 4x4 patch grid. Architecture comparison; not canine external clinical validation. Published official identity independence is not assumed for DermaMNIST. 224 download bandwidth constrained and recorded separately."
+}

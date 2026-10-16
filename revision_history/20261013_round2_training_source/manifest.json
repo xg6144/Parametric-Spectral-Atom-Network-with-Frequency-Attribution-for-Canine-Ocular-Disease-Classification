@@ -1,0 +1,54 @@
+{
+  "experiments/validation_tuning.py": {
+    "sha256": "cf6b0cf801f6d5453eb20d72c039772943adb205546da8d3f5b4afad2822d1ba",
+    "bytes": 16324
+  },
+  "experiments/training.py": {
+    "sha256": "9b90040a70ba68089a16c4ba8de5653b4032509192f6f33e8e7edc5daae9a7b6",
+    "bytes": 13136
+  },
+  "experiments/common.py": {
+    "sha256": "cec56b9730539dcc9485a3f1ebe8ed351b150ee28943604ad8d3ce157d7483c6",
+    "bytes": 8091
+  },
+  "models/psan.py": {
+    "sha256": "364682b9a49889004344312de268b16cb97085fbab369aea20e489453a805cd1",
+    "bytes": 32468
+  },
+  "models/gfnet.py": {
+    "sha256": "7589309b2e4e4602b61987a886d133357323ce151eb34575b8e31e2b84a1732f",
+    "bytes": 5892
+  },
+  "models/afno.py": {
+    "sha256": "517a076f9ec6f4110436d3d8671d323bd5f52d3b8d786d0d6fd20456b2c92642",
+    "bytes": 15346
+  },
+  "train/train_base.py": {
+    "sha256": "5e6073e8e5c1eb17c687e4e3b75c948b91cc389902eb9e4a7904d9a164762337",
+    "bytes": 26240
+  },
+  "configs/validation_tuning.json": {
+    "sha256": "b278701c5f028eceb77069b2a278d4fe5961752cc7ab0f3a4aeecd4468614866",
+    "bytes": 2254
+  },
+  "configs/round2_protocol.json": {
+    "sha256": "0fde5fbc2b188368a70092c9daaa53ca2610f0039a39433033372a36630e8117",
+    "bytes": 993
+  },
+  "configs/round2_statistics.json": {
+    "sha256": "3b0b2d51850919062c1e060d8cae0d4761f4e437a44cc88a677a6200ae0a8dd0",
+    "bytes": 1037
+  },
+  "configs/revision.json": {
+    "sha256": "68dda90791d4455dae94c7f8536ca6cf56a77149723b693fd8a44a952c85cb25",
+    "bytes": 755
+  },
+  "configs/external64.json": {
+    "sha256": "ebb00c9b36ec18b5a79ea78326438e22c377955d9252c73f262e3627fb0b9330",
+    "bytes": 708
+  },
+  "experiments/round2_queue.py": {
+    "sha256": "cf5a3fac41e8b9e450422c00bf475296c62593932a06362efce63e0f3f5a5240",
+    "bytes": 2077
+  }
+}
