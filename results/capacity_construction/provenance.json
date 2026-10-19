@@ -1,0 +1,10 @@
+{
+  "target_checkpoint": "train_results/gfnet_tiny/20260610_141646/best_gfnet_tiny.pth",
+  "target_checkpoint_sha256": "ddd4195e2316a84db3eee1e0f4805ea79dcd67877973169b85f3907559cf0fee",
+  "precision": "CPU float64/complex128",
+  "target_state": "eval_model",
+  "source_code_sha256": "2db3cbbe5beb12b8d5a72274e6e8de519d8704861ffce721e08ad0a3a8f61ad1",
+  "protocol": "M=F112, centers at actual FFT bins, rho0, common isotropic scale, theta0/phase0/amplitude1; exact complex mixing solve",
+  "image_or_test_label_use": false,
+  "scope": "nominal filter tensor representability on this grid; not small-M or classification/generalization recovery"
+}
