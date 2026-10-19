@@ -1,0 +1,12 @@
+{
+  "source": "saved actual finite atom/suffix interventions; no new model or invented perturbation",
+  "checkpoint_sha256": "810d46669d84b81c2689c42e44df8ffb0cfe06009dfd9a65d95a49ced52fed3b",
+  "raw_baseline_prediction_sha256": "e07a2af90b88b070bda400658b1393c7e7725b995841e644977796d54835a7d3",
+  "baseline_path": "results/attribution/810d46669d84/baseline_b8_cudnn_tf32_True.csv",
+  "negative_condition": "report only images with at least one negative atom; missing negatives are excluded and n reported",
+  "positive_condition": "report only images with a positive atom; budget one",
+  "confidence": "original target raw probability minus perturbed raw target probability; mean over k1..16 then images",
+  "precision_note": "use replayed diagnostic-batch baseline when available; cuDNN TF32 can change a near-boundary prediction across batch sizes, as recorded in baseline_replay.json",
+  "bootstrap": 1000,
+  "seed": 42
+}

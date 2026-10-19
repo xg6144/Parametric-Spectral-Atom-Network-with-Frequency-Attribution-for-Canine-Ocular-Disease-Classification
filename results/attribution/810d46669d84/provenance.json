@@ -1,0 +1,28 @@
+{
+  "checkpoint": "results/tuning/final/canine_psan_c2_s42_final/best.pth",
+  "checkpoint_sha256": "810d46669d84b81c2689c42e44df8ffb0cfe06009dfd9a65d95a49ced52fed3b",
+  "active_split_sha256": "943e11e906a9eb4e54fa9ecefeb37c8ca589c64f1d0b81e7c2471881e101cce7",
+  "images": 220,
+  "samples_per_class": 20,
+  "blocks": [
+    0,
+    5,
+    11
+  ],
+  "target": "original predicted class fixed throughout",
+  "atom_removal": "one block only; exactly zero removed atoms; no survivor rescaling; all other blocks unchanged",
+  "aopc": "mean logit drop over k1..16 per image, then mean over the balanced diagnostic subset",
+  "spectral_deletion": "actual real filter response rFFT; conjugate-consistent groups;1/10/25/50percent budgets",
+  "full_randomization": "non-geometric parameters reset; geometry retained for index comparability",
+  "noise_sigma_rgb": 0.01,
+  "bootstrap": 1000,
+  "cohort": "equal_budget_validation_only_followup_v1",
+  "scope": "validation-selected model; balanced model-behavior diagnostics, not expert clinical validation",
+  "executed_source_sha256": "e0630256532c6f4338ce07b2967b5e3d602a7ab8ad1a15649df1f1951613620c",
+  "executed_source_snapshot": "revision_history/new_source_versions/faithfulness_e0630256532c6f4338ce07b2967b5e3d602a7ab8ad1a15649df1f1951613620c.py",
+  "finalization_error": "relative CLI checkpoint path failed relative_to(ROOT) after all raw calculations/figures were saved",
+  "failure_log": "results/experiment_logs/tuned_attribution.log",
+  "recovery": "validated complete saved atom/deletion/sanity/frequency outputs; no invented or repeated model measurements",
+  "baseline_numerics": "replayed batch8 baseline matches220/220 fixed attribution targets; TF32-enabled convolution differs from batch128 at one case; controlled TF32-off results are archived",
+  "recovery_source_sha256": "d0ea1a142ce4547cad4c3395ae564e4596c79da84845080c265cbfdf1dd87837"
+}

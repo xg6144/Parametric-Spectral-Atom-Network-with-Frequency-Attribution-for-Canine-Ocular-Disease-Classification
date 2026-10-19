@@ -1,0 +1,45 @@
+{
+  "results": [
+    {
+      "batch": 8,
+      "cudnn_allow_tf32": true,
+      "matches_actual_attribution_targets": 220,
+      "images": 220,
+      "differs_from_saved_full_test": 1,
+      "max_logit_difference_from_saved_full_test": 0.05345990845031734,
+      "source": "results/attribution/810d46669d84/baseline_b8_cudnn_tf32_True.csv"
+    },
+    {
+      "batch": 128,
+      "cudnn_allow_tf32": true,
+      "matches_actual_attribution_targets": 219,
+      "images": 220,
+      "differs_from_saved_full_test": 0,
+      "max_logit_difference_from_saved_full_test": 4.7491455035242325e-07,
+      "source": "results/attribution/810d46669d84/baseline_b128_cudnn_tf32_True.csv"
+    },
+    {
+      "batch": 8,
+      "cudnn_allow_tf32": false,
+      "matches_actual_attribution_targets": 219,
+      "images": 220,
+      "differs_from_saved_full_test": 0,
+      "max_logit_difference_from_saved_full_test": 7.4420776368100405e-06,
+      "source": "results/attribution/810d46669d84/baseline_b8_cudnn_tf32_False.csv"
+    },
+    {
+      "batch": 128,
+      "cudnn_allow_tf32": false,
+      "matches_actual_attribution_targets": 219,
+      "images": 220,
+      "differs_from_saved_full_test": 0,
+      "max_logit_difference_from_saved_full_test": 4.7491455035242325e-07,
+      "source": "results/attribution/810d46669d84/baseline_b128_cudnn_tf32_False.csv"
+    }
+  ],
+  "checkpoint_sha256": "810d46669d84b81c2689c42e44df8ffb0cfe06009dfd9a65d95a49ced52fed3b",
+  "original_cudnn_allow_tf32": true,
+  "matmul_allow_tf32": false,
+  "interpretation": "controlled baseline numerical diagnostic only; no checkpoint or hyperparameter selection",
+  "source_code_sha256": "d34b9235ff006800677626721e24fa717b1ec59d0cee97606cfe290697218574"
+}

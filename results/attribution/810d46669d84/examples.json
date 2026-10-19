@@ -1,0 +1,212 @@
+[
+  {
+    "path": "Nuclear_sclerosis/crop_D11_0ea10d1e-60a5-11ec-8402-0a7404972c70.jpg",
+    "true_class": "Nuclear_sclerosis",
+    "predicted_class": "Nuclear_sclerosis",
+    "correct": true,
+    "probabilities": {
+      "Blepharitis": 6.417626536858734e-07,
+      "Cataract": 0.0014976938255131245,
+      "Conjunctivitis": 1.3454430245474214e-06,
+      "Entropion": 1.9423055164224934e-06,
+      "Epiphora": 2.315521442142199e-06,
+      "Eyelid_tumor": 1.073802536666335e-06,
+      "Non_ulcerative_keratitis": 1.2349518101473222e-06,
+      "Normal": 4.881206336904143e-07,
+      "Nuclear_sclerosis": 0.9984906911849976,
+      "Pigmentary_keratitis": 1.8520469780014537e-07,
+      "Ulcerative_keratitis": 2.3942791358422255e-06
+    },
+    "target": "predicted class",
+    "gradcam_layer": "output of final PSAN block before final LayerNorm/GAP"
+  },
+  {
+    "path": "Nuclear_sclerosis/crop_D15_10dde38c-60a5-11ec-8402-0a7404972c70.jpg",
+    "true_class": "Nuclear_sclerosis",
+    "predicted_class": "Cataract",
+    "correct": false,
+    "probabilities": {
+      "Blepharitis": 3.1976226182450773e-06,
+      "Cataract": 0.8959095478057861,
+      "Conjunctivitis": 0.00011476474901428446,
+      "Entropion": 0.0016352602979168296,
+      "Epiphora": 0.0008164208848029375,
+      "Eyelid_tumor": 2.4475136797263985e-06,
+      "Non_ulcerative_keratitis": 6.468440005846787e-07,
+      "Normal": 6.493503315141425e-05,
+      "Nuclear_sclerosis": 0.10143139213323593,
+      "Pigmentary_keratitis": 1.0378581464465242e-05,
+      "Ulcerative_keratitis": 1.1023073966498487e-05
+    },
+    "target": "predicted class",
+    "gradcam_layer": "output of final PSAN block before final LayerNorm/GAP"
+  },
+  {
+    "path": "Eyelid_tumor/crop_D0_35306ff1-60a5-11ec-8402-0a7404972c70.jpg",
+    "true_class": "Eyelid_tumor",
+    "predicted_class": "Eyelid_tumor",
+    "correct": true,
+    "probabilities": {
+      "Blepharitis": 0.00026750561664812267,
+      "Cataract": 0.0005993478698655963,
+      "Conjunctivitis": 0.00015183052164502442,
+      "Entropion": 0.001963899005204439,
+      "Epiphora": 0.0020305654034018517,
+      "Eyelid_tumor": 0.9949610233306885,
+      "Non_ulcerative_keratitis": 2.4779894829407567e-06,
+      "Normal": 1.621015712771623e-06,
+      "Nuclear_sclerosis": 1.882850847323425e-05,
+      "Pigmentary_keratitis": 1.605600914444949e-06,
+      "Ulcerative_keratitis": 1.2666801012528595e-06
+    },
+    "target": "predicted class",
+    "gradcam_layer": "output of final PSAN block before final LayerNorm/GAP"
+  },
+  {
+    "path": "Eyelid_tumor/crop_D0_356f61b2-60a5-11ec-8402-0a7404972c70.jpg",
+    "true_class": "Eyelid_tumor",
+    "predicted_class": "Ulcerative_keratitis",
+    "correct": false,
+    "probabilities": {
+      "Blepharitis": 1.7926187865668908e-05,
+      "Cataract": 0.10289972275495529,
+      "Conjunctivitis": 6.201629730639979e-05,
+      "Entropion": 0.0031759885605424643,
+      "Epiphora": 0.004315315280109644,
+      "Eyelid_tumor": 0.20426569879055023,
+      "Non_ulcerative_keratitis": 0.00010973835014738142,
+      "Normal": 0.0014155610697343946,
+      "Nuclear_sclerosis": 0.0012462455779314041,
+      "Pigmentary_keratitis": 0.002061467384919524,
+      "Ulcerative_keratitis": 0.6804302930831909
+    },
+    "target": "predicted class",
+    "gradcam_layer": "output of final PSAN block before final LayerNorm/GAP"
+  },
+  {
+    "path": "Non_ulcerative_keratitis/crop_D20_2096779b-60a5-11ec-8402-0a7404972c70.jpg",
+    "true_class": "Non_ulcerative_keratitis",
+    "predicted_class": "Non_ulcerative_keratitis",
+    "correct": true,
+    "probabilities": {
+      "Blepharitis": 6.393184776243288e-06,
+      "Cataract": 0.00010859176836675033,
+      "Conjunctivitis": 0.0002454808563925326,
+      "Entropion": 8.004115557014302e-07,
+      "Epiphora": 5.8697942506569234e-08,
+      "Eyelid_tumor": 2.217286088068704e-08,
+      "Non_ulcerative_keratitis": 0.9993083477020264,
+      "Normal": 7.80615027906606e-06,
+      "Nuclear_sclerosis": 7.297208867385052e-06,
+      "Pigmentary_keratitis": 6.008321633999003e-06,
+      "Ulcerative_keratitis": 0.00030924862949177623
+    },
+    "target": "predicted class",
+    "gradcam_layer": "output of final PSAN block before final LayerNorm/GAP"
+  },
+  {
+    "path": "Non_ulcerative_keratitis/crop_D0_18b88b30-60a5-11ec-8402-0a7404972c70.jpg",
+    "true_class": "Non_ulcerative_keratitis",
+    "predicted_class": "Blepharitis",
+    "correct": false,
+    "probabilities": {
+      "Blepharitis": 0.6609470248222351,
+      "Cataract": 0.00027643723296932876,
+      "Conjunctivitis": 0.0036797800567001104,
+      "Entropion": 0.011566488072276115,
+      "Epiphora": 0.002288062358275056,
+      "Eyelid_tumor": 8.186729587578156e-07,
+      "Non_ulcerative_keratitis": 0.28449568152427673,
+      "Normal": 0.0013191322796046734,
+      "Nuclear_sclerosis": 0.0005238650483079255,
+      "Pigmentary_keratitis": 2.9556231311289594e-06,
+      "Ulcerative_keratitis": 0.03489973023533821
+    },
+    "target": "predicted class",
+    "gradcam_layer": "output of final PSAN block before final LayerNorm/GAP"
+  },
+  {
+    "path": "Pigmentary_keratitis/crop_D14_1cc8009f-60a5-11ec-8402-0a7404972c70.jpg",
+    "true_class": "Pigmentary_keratitis",
+    "predicted_class": "Pigmentary_keratitis",
+    "correct": true,
+    "probabilities": {
+      "Blepharitis": 8.27440373996069e-07,
+      "Cataract": 2.060593578789849e-05,
+      "Conjunctivitis": 5.960674087646112e-08,
+      "Entropion": 3.788208005062188e-07,
+      "Epiphora": 4.119416701087175e-07,
+      "Eyelid_tumor": 3.9903721926748403e-07,
+      "Non_ulcerative_keratitis": 2.4890550776035525e-06,
+      "Normal": 2.850783175745164e-06,
+      "Nuclear_sclerosis": 1.0855898153749877e-06,
+      "Pigmentary_keratitis": 0.9999436140060425,
+      "Ulcerative_keratitis": 2.7363512344891205e-05
+    },
+    "target": "predicted class",
+    "gradcam_layer": "output of final PSAN block before final LayerNorm/GAP"
+  },
+  {
+    "path": "Pigmentary_keratitis/crop_D11_3269604d-60a5-11ec-8402-0a7404972c70.jpg",
+    "true_class": "Pigmentary_keratitis",
+    "predicted_class": "Cataract",
+    "correct": false,
+    "probabilities": {
+      "Blepharitis": 0.0009678472415544093,
+      "Cataract": 0.8546758890151978,
+      "Conjunctivitis": 0.047769203782081604,
+      "Entropion": 0.010770397260785103,
+      "Epiphora": 4.261354843038134e-05,
+      "Eyelid_tumor": 0.00024180219043046236,
+      "Non_ulcerative_keratitis": 0.006928171496838331,
+      "Normal": 0.00015625162632204592,
+      "Nuclear_sclerosis": 0.07013044506311417,
+      "Pigmentary_keratitis": 0.0002506864839233458,
+      "Ulcerative_keratitis": 0.008066720329225063
+    },
+    "target": "predicted class",
+    "gradcam_layer": "output of final PSAN block before final LayerNorm/GAP"
+  },
+  {
+    "path": "Epiphora/crop_D13_0d196e0a-60a5-11ec-8402-0a7404972c70.png",
+    "true_class": "Epiphora",
+    "predicted_class": "Epiphora",
+    "correct": true,
+    "probabilities": {
+      "Blepharitis": 7.205306360447139e-07,
+      "Cataract": 3.572657760742004e-06,
+      "Conjunctivitis": 3.268008583745541e-07,
+      "Entropion": 0.06217847391963005,
+      "Epiphora": 0.8444159626960754,
+      "Eyelid_tumor": 1.4896432958266814e-06,
+      "Non_ulcerative_keratitis": 4.419700871949317e-07,
+      "Normal": 0.09339374303817749,
+      "Nuclear_sclerosis": 1.9406870706006885e-06,
+      "Pigmentary_keratitis": 1.0537470984672836e-07,
+      "Ulcerative_keratitis": 3.2447778721689247e-06
+    },
+    "target": "predicted class",
+    "gradcam_layer": "output of final PSAN block before final LayerNorm/GAP"
+  },
+  {
+    "path": "Epiphora/crop_D0_371b9e81-60a5-11ec-8402-0a7404972c70.jpg",
+    "true_class": "Epiphora",
+    "predicted_class": "Cataract",
+    "correct": false,
+    "probabilities": {
+      "Blepharitis": 0.0014037141809239984,
+      "Cataract": 0.9230917096138,
+      "Conjunctivitis": 3.7387580960057676e-05,
+      "Entropion": 0.05720694363117218,
+      "Epiphora": 0.012782919220626354,
+      "Eyelid_tumor": 0.004710688721388578,
+      "Non_ulcerative_keratitis": 1.8113745682057925e-05,
+      "Normal": 5.2020157454535365e-05,
+      "Nuclear_sclerosis": 0.00034957987372763455,
+      "Pigmentary_keratitis": 3.277342693763785e-05,
+      "Ulcerative_keratitis": 0.0003141408378724009
+    },
+    "target": "predicted class",
+    "gradcam_layer": "output of final PSAN block before final LayerNorm/GAP"
+  }
+]
