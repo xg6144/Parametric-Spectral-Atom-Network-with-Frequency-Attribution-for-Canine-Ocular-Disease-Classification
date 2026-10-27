@@ -1,0 +1,68 @@
+{
+  "revision_protocol": "outer_visual_group_test5_validation1_v1",
+  "img_size": 224,
+  "batch_size": 128,
+  "num_workers": 6,
+  "epochs": 30,
+  "warmup_epochs": 3,
+  "patience": 10,
+  "lr": 0.0001,
+  "weight_decay": 0.001,
+  "ema_decay": 0.999,
+  "ema_start_epoch": 1,
+  "gradient_clip": 1.0,
+  "precision": "float32",
+  "seeds": [
+    42
+  ],
+  "test_fold": 5,
+  "validation_fold": 1,
+  "train_folds": [
+    2,
+    3,
+    4
+  ],
+  "calibration_bins": 15,
+  "bootstrap_iterations": 1000,
+  "hyperparameter_configs_per_arm": 1,
+  "notes": "Frozen common preset; separate outer test/inner validation; no test-directed tuning; prior corpus exposure disclosed",
+  "model": "afno",
+  "seed": 42,
+  "device": "cuda:3",
+  "dataset": "canine",
+  "atom": "gabor",
+  "atom_dropout": 0.2,
+  "atoms": 16,
+  "init": "morlet",
+  "axis_aligned": false,
+  "fixed_phase": false,
+  "pretrained": false,
+  "source_code_sha256": {
+    "experiments/training.py": "9b90040a70ba68089a16c4ba8de5653b4032509192f6f33e8e7edc5daae9a7b6",
+    "experiments/common.py": "cec56b9730539dcc9485a3f1ebe8ed351b150ee28943604ad8d3ce157d7483c6",
+    "models/psan.py": "364682b9a49889004344312de268b16cb97085fbab369aea20e489453a805cd1",
+    "models/gfnet.py": "7589309b2e4e4602b61987a886d133357323ce151eb34575b8e31e2b84a1732f",
+    "models/afno.py": "517a076f9ec6f4110436d3d8671d323bd5f52d3b8d786d0d6fd20456b2c92642",
+    "train/train_base.py": "5e6073e8e5c1eb17c687e4e3b75c948b91cc389902eb9e4a7904d9a164762337"
+  },
+  "split_sha256": "e93bf512391beed2f47af0c957098fb26ad9d41dae6a86e0603e5507246d4d2e",
+  "num_classes": 11,
+  "classes": [
+    "Blepharitis",
+    "Cataract",
+    "Conjunctivitis",
+    "Entropion",
+    "Epiphora",
+    "Eyelid_tumor",
+    "Non_ulcerative_keratitis",
+    "Normal",
+    "Nuclear_sclerosis",
+    "Pigmentary_keratitis",
+    "Ulcerative_keratitis"
+  ],
+  "sample_counts": {
+    "train": 62422,
+    "val": 20808,
+    "test": 20807
+  }
+}
