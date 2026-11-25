@@ -1,6 +1,6 @@
 """Rebuild results/revision_split.csv, the train/validation/test manifest that the training and analysis code reads.
 
-The manifest joins the released split (results/corrected_sgkf5.csv) with per-image metadata from the JSON records of
+The manifest joins the locally audited split (results/corrected_sgkf5.csv) with per-image metadata from the JSON records of
 the AI-Hub dataset (capture date, device, file name, breed, sex, age and eye side), which is why it is not distributed
 with this repository. The script rebuilds it from your copy of the dataset in data_raw/ and accepts the result only
 if it matches the SHA-256 recorded in results/corrected_integrity.json, which the code checks before it uses the split.
@@ -39,6 +39,10 @@ def main():
     parser = argparse.ArgumentParser(description='Rebuild results/revision_split.csv from the AI-Hub JSON records.')
     parser.add_argument('--check-images', action='store_true', help='also check every retained image against its SHA-256')
     args = parser.parse_args()
+    split_path = ROOT / 'results/corrected_sgkf5.csv'
+    if not split_path.is_file():
+        raise SystemExit('Prepare the local audited split with python run_experiments.py --phase audit; '
+                         'see Data in README.md.')
     records = sorted((ROOT / 'data_raw').glob('*/*.json'))
     if not records:
         raise SystemExit('No JSON records in data_raw/<class>/; see "Data" in README.md.')
@@ -48,7 +52,7 @@ def main():
         metadata = pd.DataFrame(pool.map(metadata_record, records))
     # The same steps as experiments/integrity.py.
     meta = pd.read_csv(io.StringIO(metadata.to_csv(index=False)), keep_default_na=False)
-    split = pd.read_csv(ROOT / 'results/corrected_sgkf5.csv', keep_default_na=False)
+    split = pd.read_csv(split_path, keep_default_na=False)
     split['split'] = np.where(split.fold == 1, 'test', np.where(split.fold == 2, 'val', 'train'))
     meta['meta_path'] = meta.path
     split['meta_path'] = split.path.map(lambda p: str(Path(p).with_suffix('')))

@@ -1,0 +1,22 @@
+{
+  "dataset": "dermamnist_c128",
+  "arm": "gfnet",
+  "candidate": {
+    "id": "c2",
+    "lr": 0.0005,
+    "weight_decay": 0.05
+  },
+  "validation_scores": [
+    0.1647212370549014,
+    0.1474612906792936,
+    0.16575784640937652
+  ],
+  "screening_tags": [
+    "dermamnist_c128_gfnet_c0_s42_screening",
+    "dermamnist_c128_gfnet_c1_s42_screening",
+    "dermamnist_c128_gfnet_c2_s42_screening"
+  ],
+  "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order",
+  "protocol_sha256": "ce4aba5a0a92889db82c7350d4732f0baa4d5de7e37f300701caf5f07562d9e7",
+  "test_used": false
+}

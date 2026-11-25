@@ -1,0 +1,37 @@
+{
+  "protocol_sha256": "ce6957db188562c509d18dee1d6f305045f80ac27634d4d5c5101af38e28c0bf",
+  "bootstrap": 10000,
+  "reference": "results/tuning/final/canine_psan_c2_s42_final/test_predictions.csv",
+  "runs": {
+    "shared": 15,
+    "tuned": 15
+  },
+  "selections": {
+    "deit_scratch": "c1",
+    "convnext_scratch": "c2",
+    "fastvit_t8_scratch": "c2",
+    "swin_scratch": "c0",
+    "shvit_s1_scratch": "c2"
+  },
+  "psan_reference_tags": {
+    "shared": [
+      "canine_psan_gabor_ad0p2_M16_morlet_s42",
+      "canine_psan_gabor_ad0p2_M16_morlet_s43",
+      "canine_psan_gabor_ad0p2_M16_morlet_s44"
+    ],
+    "tuned": [
+      "canine_psan_c2_s42_final",
+      "canine_psan_c2_s43_final",
+      "canine_psan_c2_s44_final"
+    ]
+  },
+  "families": {
+    "tuned_backbones": 5,
+    "shared_backbones": 5
+  },
+  "source_sha256": {
+    "experiments/round5_analysis.py": "ed5cb079c35592d369f87cd355841c34d550ef8d68fe7f428780f3146fbd0d38",
+    "experiments/round3_analysis.py": "9047da9c331f58514f8beea97280fcae73f657c87fd161e39d157232f66f0f81",
+    "experiments/round5.py": "8167526096e4c6a6425c929ad05cd30724e012b891371b5f715cd4543f5dde2f"
+  }
+}

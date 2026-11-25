@@ -1,0 +1,22 @@
+{
+  "dataset": "canine",
+  "arm": "convnext_scratch",
+  "candidate": {
+    "id": "c2",
+    "lr": 0.0005,
+    "weight_decay": 0.05
+  },
+  "validation_scores": [
+    0.34272964663162847,
+    0.43660243523330916,
+    0.45439869553016143
+  ],
+  "screening_tags": [
+    "canine_convnext_scratch_c0_s42_screening",
+    "canine_convnext_scratch_c1_s42_screening",
+    "canine_convnext_scratch_c2_s42_screening"
+  ],
+  "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order",
+  "protocol_sha256": "ce6957db188562c509d18dee1d6f305045f80ac27634d4d5c5101af38e28c0bf",
+  "test_used": false
+}

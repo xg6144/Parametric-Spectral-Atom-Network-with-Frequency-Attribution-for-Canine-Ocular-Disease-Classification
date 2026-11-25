@@ -1,0 +1,102 @@
+{
+  "protocol": "round8_selected_blood_exact_raster_sensitivity_v1",
+  "frozen_kst": "2026-11-10T08:18:23.300885+09:00",
+  "post_hoc": true,
+  "not_a_blinded_holdout": true,
+  "prior_exposure": "All submitted and round7 outcomes and the new rereview were known. This analysis was specified before computing the selected-model scores under the reused mask.",
+  "scope": "Original Table15 validation-selected BloodMNIST128 models; distinct from Table16 fixed-recipe support runs.",
+  "rule": "Reuse the frozen round7 mask excluding any test raster present in the FULL training or validation source; one identical mask for every selected model/seed.",
+  "arms": [
+    "psan",
+    "psan_ad0",
+    "gfnet_matched",
+    "gfnet",
+    "afno"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "contrasts": [
+    "psan minus gfnet_matched",
+    "psan_ad0 minus gfnet_matched",
+    "psan minus gfnet",
+    "psan minus afno"
+  ],
+  "validation_and_training": "Unchanged; no refitting, reselection, recalibration or retraining.",
+  "statistics": {
+    "bootstrap": 10000,
+    "group_seed": 2031,
+    "crossed_seed": 2033,
+    "grouping": "individual official test image; no patient identifiers",
+    "family": "Same four selected-model contrasts as the original Blood benchmark; Holm4 separately for original and retained evaluations.",
+    "per_seed": "Descriptive paired percentile intervals, not per-seed significance claims",
+    "primary": "Report all15 run scores and all4 crossed contrasts, irrespective of direction/significance."
+  },
+  "audit": {
+    "original_images": 3421,
+    "excluded_images": 6,
+    "retained_images": 3415,
+    "cross_split_shared_unique_rasters": {
+      "train_val": 3,
+      "train_test": 5,
+      "val_test": 1
+    },
+    "mask_recomputed_from_official_rasters": true,
+    "within_training_duplicate_copies": 8
+  },
+  "oct_context": {
+    "provenance": "results/external_data/round3_128/octmnist128_provenance.json",
+    "overlap_semantics": "Counts of intersecting sets of SHA256 hashes of decoded uint8 image rasters, not numbers of patient identities or duplicate pairs.",
+    "cross_split_shared_unique_rasters": {
+      "train_val": 1334,
+      "train_test": 0,
+      "val_test": 0
+    },
+    "patient_or_lesion_ids_in_npz": false
+  },
+  "limitations": "Test-only exclusion does not repair training-validation overlap or unknown patient dependence and is not independent confirmation.",
+  "inputs": {
+    "results/round3/external/final/bloodmnist128_psan_c1_s42_final/summary.json": "e73650074cbfc64ba816a2ff63bfeb3830a65cfd861ddb7aa8106dd4a2f76398",
+    "results/round3/external/final/bloodmnist128_psan_c1_s42_final/test_predictions.csv": "6ac00ae33355ca5baffbc6377e26aab41e200b6c6460bbcb92a4329fb9c7faa9",
+    "results/round3/external/final/bloodmnist128_psan_c1_s43_final/summary.json": "9ed2ba0b9574c3766bef154d97a2fd032eebaa090d3f133ce2781412fbef2b3c",
+    "results/round3/external/final/bloodmnist128_psan_c1_s43_final/test_predictions.csv": "51c825e49a165da252cd8289cb61a57820e8781b20344bca3a63c2d0c922b129",
+    "results/round3/external/final/bloodmnist128_psan_c1_s44_final/summary.json": "aff294acadae3cfc12da506c6cc9c3e795adbe1cb7a8e1dad41d1c528b3cb61c",
+    "results/round3/external/final/bloodmnist128_psan_c1_s44_final/test_predictions.csv": "0e85dac772c63ade2b14949a84d5509f85191277253df59a389c1fbedd300ee4",
+    "results/round3/external/final/bloodmnist128_psan_ad0_c2_s42_final/summary.json": "31c305c433f36f801c7a902e972c11858a68daa11e97999fe64ced6cb9b5aab7",
+    "results/round3/external/final/bloodmnist128_psan_ad0_c2_s42_final/test_predictions.csv": "deb6ce05d641527587377be9078da5b0d0cd3281542bd4dbc89c9a8dde5834e4",
+    "results/round3/external/final/bloodmnist128_psan_ad0_c2_s43_final/summary.json": "b4013036db495da956b58414e5aa62abafb9554229f4926c1d068c53bab6d5b8",
+    "results/round3/external/final/bloodmnist128_psan_ad0_c2_s43_final/test_predictions.csv": "d4e29e934ae83b43c22eaa2206a2afe0684b64265d123b4f096aa3dd2a922a4a",
+    "results/round3/external/final/bloodmnist128_psan_ad0_c2_s44_final/summary.json": "478ccfcc50657f4304eb918a0636cb5d4338ac37dd26d8aea77ecc94a16bf274",
+    "results/round3/external/final/bloodmnist128_psan_ad0_c2_s44_final/test_predictions.csv": "af9d7f64834d8796cc3c97ebdefb4f837f6b8e349abbabf97988fa4fbec82bdc",
+    "results/round3/external/final/bloodmnist128_gfnet_matched_c2_s42_final/summary.json": "e397f30565424214109b54294ea2f35170071bceb4352fa1808dcdad3471ed31",
+    "results/round3/external/final/bloodmnist128_gfnet_matched_c2_s42_final/test_predictions.csv": "f19e88532849b362376742262e5f8e5b138f807a58db73f1ebb80f25e42d54d9",
+    "results/round3/external/final/bloodmnist128_gfnet_matched_c2_s43_final/summary.json": "6a7c2ae5382c7d2e03882a043707d875c0ca5e4b38a6a859cfc8bc46539a04d6",
+    "results/round3/external/final/bloodmnist128_gfnet_matched_c2_s43_final/test_predictions.csv": "b0336afa2f44f44e4a06bf8cc6a660c3d342533e8800f08927c11dfe7647888f",
+    "results/round3/external/final/bloodmnist128_gfnet_matched_c2_s44_final/summary.json": "88c16b089ad3b9f9601b31065e0523c29627ebdf2171f4094e0b2019b45cfa2f",
+    "results/round3/external/final/bloodmnist128_gfnet_matched_c2_s44_final/test_predictions.csv": "5c5d3c318a3649096a78f52fbeb1a3079754d3c5fde9731e8799b3b3d6ed2715",
+    "results/round3/external/final/bloodmnist128_gfnet_c1_s42_final/summary.json": "cfca619572f9644f2575e338655beff681a8d5ba32d2cf0157dbbae7213d9a0f",
+    "results/round3/external/final/bloodmnist128_gfnet_c1_s42_final/test_predictions.csv": "05146b284ce6517f843aad4467a831b23268f6dc4a434efdb06dfcd65a34a32d",
+    "results/round3/external/final/bloodmnist128_gfnet_c1_s43_final/summary.json": "1de772292be75e2c75160ce93766772cec21b969712585742e2ea44dde168780",
+    "results/round3/external/final/bloodmnist128_gfnet_c1_s43_final/test_predictions.csv": "c8af263409d65429aeecf467ed8925280620c54ca5aff55b5ee4b1164e3f41ec",
+    "results/round3/external/final/bloodmnist128_gfnet_c1_s44_final/summary.json": "a8c1f1a5c687866f1c5653d964e6c5b45e9c4f1e43f1caf5f0f223a098d32ced",
+    "results/round3/external/final/bloodmnist128_gfnet_c1_s44_final/test_predictions.csv": "6119ec29266c90b5cccacc96ff832f81661a7ddc05c76cb72358182a44ab7696",
+    "results/round3/external/final/bloodmnist128_afno_c2_s42_final/summary.json": "2ba8eb524700474218681887aea52dc0695b07817eeed5fc0a251fd64996ee67",
+    "results/round3/external/final/bloodmnist128_afno_c2_s42_final/test_predictions.csv": "54cf13961c1c603eb5e9204daf1e214f324a3ead3f27340cc5104235c914d4e6",
+    "results/round3/external/final/bloodmnist128_afno_c2_s43_final/summary.json": "cae5cf870d953f7592f1516efdb852fe115cdd55b283682d2d78a486021e90a6",
+    "results/round3/external/final/bloodmnist128_afno_c2_s43_final/test_predictions.csv": "c4c7214b762fc5d114f585b32256c1f59c1c6fa15be54a06e2b559d75d70f05e",
+    "results/round3/external/final/bloodmnist128_afno_c2_s44_final/summary.json": "45ea724df97b7c4c3a43f550223bf43775de6546f7bb7622ca6c818a60256a09",
+    "results/round3/external/final/bloodmnist128_afno_c2_s44_final/test_predictions.csv": "eed70c1a4f2de893ae5f583678e23d599f47f492122891589e2a11ad18ef7cf6",
+    "results/round7/support_sensitivity/bloodmnist128_test_mask.csv": "760a9848b40fcf87e327ce543a10e856f11141de4e6862726c5086faa75a2457",
+    "results/external_data/round3_128/bloodmnist_128.npz": "2c2c2a1787db749abcac06779eb6988c2a3919445f01617ada7fe1468828fa96",
+    "results/external_data/round3_128/bloodmnist128_provenance.json": "ef19474cbdcbe64df7b7e78ebd3c0bd452e0a8f0a6f426baa562c37658ab50b6",
+    "results/external_data/round3_128/octmnist128_provenance.json": "02131e64d4e1b57f50477538722702def67419a1262b4ab7d66b9230cfd8c76f",
+    "results/round3/tables/external128_crossed.csv": "2a2a03e47478400d6372a94ab55bd833b57b268596f7d15612ac70cbc84bea16"
+  },
+  "source_code_sha256": {
+    "experiments/round8_external_sensitivity.py": "dfb702c6b8778b2c4808c71637be9d859ad67f9da019ad187d76f56524b177e1",
+    "experiments/round3_analysis.py": "9047da9c331f58514f8beea97280fcae73f657c87fd161e39d157232f66f0f81",
+    "experiments/common.py": "0dbeae497d3d3bfeaa064b56a1af938da5a15cbb512acccebdaa33b7c0ea2a6d"
+  }
+}

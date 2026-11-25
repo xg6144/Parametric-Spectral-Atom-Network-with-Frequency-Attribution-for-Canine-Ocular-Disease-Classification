@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "device": "cuda:0",
+  "runs": [
+    {
+      "archived_run": "results/round3/tuning/final/canine_gfnet_matched_c2_s42_final",
+      "archived_train_loss": 1.734774830004386,
+      "replay_train_loss": 1.734774830004386,
+      "archived_validation_macro_f1": 0.1390023691758031,
+      "replay_validation_macro_f1": 0.13900236917580314,
+      "exact": true
+    },
+    {
+      "archived_run": "results/round7/support/final/bloodmnist128_psan_ad0_f100_c2_s42_final",
+      "archived_train_loss": 1.7447696705807092,
+      "replay_train_loss": 1.7447696705807092,
+      "archived_validation_macro_f1": 0.0362137862137862,
+      "replay_validation_macro_f1": 0.036213786213786216,
+      "exact": true
+    },
+    {
+      "archived_run": "results/round7/support/final/dermamnist_c128_gfnet_matched_f100_c2_s43_final",
+      "archived_train_loss": 1.62393810910128,
+      "replay_train_loss": 1.62393810910128,
+      "archived_validation_macro_f1": 0.1575262899499258,
+      "replay_validation_macro_f1": 0.15752628994992587,
+      "exact": true
+    }
+  ],
+  "source_sha256": "b80fe232e132b40f47837b93a25b8ce6f2ca1dd49dc3b4e195abb93266027966",
+  "note": "First epoch only; schedules of the archived runs; the dense replay uses the original no-decay list, so the weight-decay arm differs from a reproduced path by that list alone."
+}

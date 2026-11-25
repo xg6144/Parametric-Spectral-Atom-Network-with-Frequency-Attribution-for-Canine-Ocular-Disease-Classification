@@ -1,0 +1,7 @@
+mode,batch,latency_ratio_to_dense,peak_allocated_difference_to_dense_mib
+psan_dynamic,1,3.37931376444542,-1.640625
+psan_cached,1,1.0270197050446574,0.328125
+psan_dynamic,16,3.4791258888814083,-2.03125
+psan_cached,16,1.0365700101255235,-0.0625
+psan_dynamic,64,1.307472559871097,-1.640625
+psan_cached,64,0.984549355672624,0.328125

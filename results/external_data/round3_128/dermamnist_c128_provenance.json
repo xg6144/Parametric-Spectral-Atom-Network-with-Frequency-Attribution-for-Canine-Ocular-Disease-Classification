@@ -1,0 +1,45 @@
+{
+  "source": "https://zenodo.org/records/10519652/files/dermamnist_128.npz?download=1",
+  "published_md5": "2defd784463fa5243564e855ed717de1",
+  "actual_md5": "2defd784463fa5243564e855ed717de1",
+  "official_sha256": "e97341e20fe04138cb0965b983d220005655f77954ad7797f8802bc94f42f459",
+  "license": "CC BY-NC 4.0",
+  "description": "The DermaMNIST is based on the HAM10000, a large collection of multi-source dermatoscopic images of common pigmented skin lesions. The dataset consists of 10,015 dermatoscopic images categorized as 7 different diseases, formulized as a multi-class classification task. We split the images into training, validation and test set with a ratio of 7:1:2. The source images of 3×600×450 are resized into 3×28×28.",
+  "resolution": 128,
+  "labels": {
+    "0": "actinic keratoses and intraepithelial carcinoma",
+    "1": "basal cell carcinoma",
+    "2": "benign keratosis-like lesions",
+    "3": "dermatofibroma",
+    "4": "melanoma",
+    "5": "melanocytic nevi",
+    "6": "vascular lesions"
+  },
+  "clinical_canine_external_validation": false,
+  "prepared_file": "dermamnist_c128_prepared.npz",
+  "prepared_sha256": "9a123e97bc571503e4ddb12b9e9ec78e190fe5aacd38dac903a5752493d89d26",
+  "split_sizes": {
+    "train": 8215,
+    "val": 573,
+    "test": 1227
+  },
+  "lesion_overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "label_mapping": {
+    "akiec": 0,
+    "bcc": 1,
+    "bkl": 2,
+    "df": 3,
+    "mel": 4,
+    "nv": 5,
+    "vasc": 6
+  },
+  "raster_correspondence_min_r": 0.9980474820089773,
+  "raster_correspondence_median_r": 0.9998751801865837,
+  "mapping": "results/external_data/dermamnist_c64_{train,val,test}_identity.csv",
+  "patient_independence_established": false,
+  "lesion_group_split_verified": true
+}

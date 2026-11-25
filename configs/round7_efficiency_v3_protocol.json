@@ -1,0 +1,80 @@
+{
+  "protocol": "round7_matched_inference_v3",
+  "frozen_on": "2026-11-09",
+  "supersedes": "v1 source mismatch and v2 dense-checkpoint schema failure are excluded; v2 source/protocol/partial cells archived in revision_history/20261109_major_revision/efficiency_v2_interrupted.tar.gz",
+  "loader_correction": "Explicit matched-dense factory for its newer checkpoint config schema; strict archived EMA state loading, no model/training modification.",
+  "reviewer_driven_post_hoc": true,
+  "prior_exposure": [
+    "submitted main and supplementary results, including earlier PSAN caching timings"
+  ],
+  "purpose": "direct matched-dense comparison; do not infer speed from filter parameter counts",
+  "gpu": {
+    "index": "1",
+    "uuid": "GPU-9a59ceff-bee7-76b6-0e53-17e4f10738f7",
+    "name": "NVIDIA GeForce RTX 5090",
+    "driver_version": "595.91.07"
+  },
+  "checkpoints": {
+    "psan": {
+      "checkpoint": "results/tuning/final/canine_psan_c2_s42_final/best.pth",
+      "sha256": "810d46669d84b81c2689c42e44df8ffb0cfe06009dfd9a65d95a49ced52fed3b",
+      "summary_sha256": "efe53f53416046cc70897c0b674987e61a05a33bcd5c7573ba1fd5d564409f7f",
+      "selection": "earlier seed-42 validation-selected 30-epoch c2 EMA checkpoint"
+    },
+    "dense": {
+      "checkpoint": "results/round3/tuning/final/canine_gfnet_matched_c2_s42_final/best.pth",
+      "sha256": "dd238e02a2ab688d1daae45d2dceb19aa06015f06bc476cd5de86ebeddfa43b4",
+      "summary_sha256": "bb9d18e09e0b2c43a7ecfd3b5c7f838fe54390e5768088bab27c8c068685a17c",
+      "selection": "earlier seed-42 validation-selected 30-epoch c2 EMA checkpoint"
+    }
+  },
+  "modes": [
+    "psan_dynamic",
+    "psan_cached",
+    "dense"
+  ],
+  "batches": [
+    1,
+    16,
+    64
+  ],
+  "replicates": [
+    1,
+    2,
+    3
+  ],
+  "warmup": 20,
+  "iterations": 100,
+  "precision": "float32 tensors; autocast disabled; matmul TF32 false; cuDNN TF32 true",
+  "input": "identical seeded standard-normal tensors within each batch/replicate, RGB224x224",
+  "input_seed": "42000 + 100*replicate + batch",
+  "cpu_threads": 4,
+  "timing": "host wall clock synchronized before/after each model-only call; output not retained",
+  "memory": "peak allocated and reserved bytes after warmup, including resident model/input/cache; unoccupied allocator slabs emptied before warmup",
+  "memory_caveat": "allocator measurements, not GPU process memory; atom parameters retained with cache",
+  "cache_construction": "cached cells:5 warmups then20 synchronized cache builds, separately timed",
+  "equivalence": "cached cells compare dynamic/cached synthetic logits at each batch/replicate; atol1e-5 and exact argmax",
+  "historical_full_test_equality": {
+    "source": "results/selected_efficiency/cache_equivalence.json",
+    "sha256": "4f8ae1a1931ab02b7fa39cfb4cdd4ed1223586b53c8f82cc0f783c6ac44ac6d4",
+    "images": 20808,
+    "max_logit_abs_difference": 0.0,
+    "argmax_agreement": 1.0,
+    "status": "reused previously completed proof; not rerun in this timing experiment"
+  },
+  "cell_order": "replicate blocks; mode order cyclically rotated by replicate, batch order1/16/64",
+  "process_isolation": "one fresh worker process per mode/batch/replicate; no concurrent compute process on GPU1",
+  "host_caveat": "other GPUs may run training and contend for CPU/host resources; desktop display active",
+  "aggregation": "median and range across the3 independent process medians; per-call median/q25/q75 retained per process",
+  "excluded": [
+    "checkpoint loading",
+    "I/O and preprocessing",
+    "cache construction from steady-state latency"
+  ],
+  "source_code_sha256": {
+    "experiments/round7_efficiency.py": "22d47ae94e8e7ae7f12ff7ba4348ad75663c4d7e54f88e82ec2baefe6c0bd053",
+    "experiments/common.py": "0dbeae497d3d3bfeaa064b56a1af938da5a15cbb512acccebdaa33b7c0ea2a6d",
+    "models/psan.py": "364682b9a49889004344312de268b16cb97085fbab369aea20e489453a805cd1",
+    "models/gfnet.py": "7589309b2e4e4602b61987a886d133357323ce151eb34575b8e31e2b84a1732f"
+  }
+}

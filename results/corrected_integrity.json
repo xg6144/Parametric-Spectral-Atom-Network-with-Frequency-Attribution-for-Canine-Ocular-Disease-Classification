@@ -1,0 +1,91 @@
+{
+  "raw_images": 198874,
+  "retained_images": 104037,
+  "retained_groups": 101813,
+  "split_counts": {
+    "train": 62422,
+    "test": 20808,
+    "val": 20807
+  },
+  "overlap": {
+    "train_val": {
+      "paths": 0,
+      "visual_groups": 0,
+      "byte_sha256": 0
+    },
+    "train_test": {
+      "paths": 0,
+      "visual_groups": 0,
+      "byte_sha256": 0
+    },
+    "val_test": {
+      "paths": 0,
+      "visual_groups": 0,
+      "byte_sha256": 0
+    }
+  },
+  "retained_byte_duplicate_rows": 0,
+  "retained_pixel_duplicate_rows": 0,
+  "retained_candidate_pairs": 2486,
+  "retained_verified_pairs": 0,
+  "cross_split_candidate_pairs": 0,
+  "metadata_coverage": {
+    "file_name": 198874,
+    "date_time": 198874,
+    "device": 198874,
+    "dog_id": 0,
+    "patient_id": 0,
+    "visit_id": 0,
+    "hospital_id": 0,
+    "session_id": 0
+  },
+  "normal_device_counts": {
+    "검안경": 0,
+    "스마트폰": 60843,
+    "일반카메라": 0
+  },
+  "cramers_v": 0.739474796007752,
+  "device_only_metrics": {
+    "accuracy": 0.7407727797001153,
+    "balanced_accuracy": 0.21962231395554416,
+    "macro_f1": 0.18279515766378118,
+    "weighted_f1": 0.6624454024288843,
+    "macro_precision": 0.1616039166336251,
+    "weighted_precision": 0.6094672577317012,
+    "macro_recall": 0.21962231395554416,
+    "weighted_recall": 0.7407727797001153,
+    "cohen_kappa": 0.5491750607902615,
+    "mcc": 0.5688684535642327,
+    "ece": 0.004080696798161007,
+    "brier_score": 0.38888903753019305,
+    "nll": 0.8871709280415102,
+    "classwise_ece": 0.0007104855547594417,
+    "macro_auc_ovr": 0.8265095150847526,
+    "weighted_auc_ovr": 0.8755355531666121,
+    "macro_auc_ovo": 0.708807430785555,
+    "macro_pr_auc": 0.1984152727114291,
+    "weighted_pr_auc": 0.616794164336368
+  },
+  "dedup_policy_disagreement": {
+    "current_retained": 104037,
+    "frozen_retained": 104053,
+    "frozen_pixel_duplicate_rows": 0,
+    "frozen_retained_current_status": {
+      "keep": 103980,
+      "exclude_duplicate": 69,
+      "exclude_label_conflict": 4
+    },
+    "retained_candidate_pairs": 2541,
+    "retained_verified_pairs": 54,
+    "cross_split_candidate_pairs": 3,
+    "cross_group_candidate_pairs": 9,
+    "frozen_only_paths": 73,
+    "reconstruction_only_paths": 57
+  },
+  "revised_manifest_source": "results/corrected_dedup_manifest.csv",
+  "dedup_manifest_sha256": "d5dc78ac2d3a13e29f1769beff39c6c0e37d3033bf0d01654d9751d5d46b64ba",
+  "reconstructed_audit_sha256": "e75cb2fba43d708babe1ab97bbd264381f21a26be71f499a15dc057b5bf7f4e1",
+  "revision_manifest_sha256": "943e11e906a9eb4e54fa9ecefeb37c8ca589c64f1d0b81e7c2471881e101cce7",
+  "patient_independence_established": false,
+  "group_method": "union of current raw visual groups and previous retained visual groups; StratifiedGroupKFold seed42"
+}

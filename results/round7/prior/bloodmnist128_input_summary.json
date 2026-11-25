@@ -1,0 +1,11 @@
+{
+  "dataset": "bloodmnist128",
+  "samples": 512,
+  "classes": 8,
+  "natural_validation_counts": "See original split; the present sample and summaries weight classes equally.",
+  "sample_sha256": "59c45bc315bc2753c498873ae3d1204ec58c5990ee5d9a22addba918d0c008b9",
+  "dc_fraction": 0.9265567512131981,
+  "low_non_dc_fraction": 0.9944208466560982,
+  "centroid_non_dc": 0.05006411521212826,
+  "entropy_non_dc": 0.40350150744100943
+}

@@ -1,0 +1,31 @@
+{
+  "source": "https://zenodo.org/records/10519652/files/dermamnist_64.npz?download=1",
+  "published_md5": "b70a2f5635c6199aeaa28c31d7202e1f",
+  "actual_md5": "b70a2f5635c6199aeaa28c31d7202e1f",
+  "license": "CC BY-NC 4.0",
+  "description": "The DermaMNIST is based on the HAM10000, a large collection of multi-source dermatoscopic images of common pigmented skin lesions. The dataset consists of 10,015 dermatoscopic images categorized as 7 different diseases, formulized as a multi-class classification task. We split the images into training, validation and test set with a ratio of 7:1:2. The source images of 3×600×450 are resized into 3×28×28.",
+  "official_split_sizes": {
+    "train": 7007,
+    "val": 1003,
+    "test": 2005
+  },
+  "resolution": 64,
+  "labels": {
+    "0": "actinic keratoses and intraepithelial carcinoma",
+    "1": "basal cell carcinoma",
+    "2": "benign keratosis-like lesions",
+    "3": "dermatofibroma",
+    "4": "melanoma",
+    "5": "melanocytic nevi",
+    "6": "vascular lesions"
+  },
+  "pixel_hash_cross_split_overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "patient_or_lesion_ids_in_npz": false,
+  "clinical_canine_external_validation": false,
+  "known_dermamnist_lesion_leakage": true,
+  "leakage_reference": "https://www.nature.com/articles/s41597-025-04382-5"
+}

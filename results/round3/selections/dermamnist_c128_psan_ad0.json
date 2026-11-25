@@ -1,0 +1,22 @@
+{
+  "dataset": "dermamnist_c128",
+  "arm": "psan_ad0",
+  "candidate": {
+    "id": "c2",
+    "lr": 0.0005,
+    "weight_decay": 0.05
+  },
+  "validation_scores": [
+    0.18036816777594056,
+    0.18513186845924356,
+    0.25000371816322736
+  ],
+  "screening_tags": [
+    "dermamnist_c128_psan_ad0_c0_s42_screening",
+    "dermamnist_c128_psan_ad0_c1_s42_screening",
+    "dermamnist_c128_psan_ad0_c2_s42_screening"
+  ],
+  "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order",
+  "protocol_sha256": "ce4aba5a0a92889db82c7350d4732f0baa4d5de7e37f300701caf5f07562d9e7",
+  "test_used": false
+}

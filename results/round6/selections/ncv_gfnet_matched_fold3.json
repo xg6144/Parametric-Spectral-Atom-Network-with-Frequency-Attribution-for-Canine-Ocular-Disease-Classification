@@ -1,0 +1,24 @@
+{
+  "unit": "ncv_gfnet_matched_fold3",
+  "experiment": "ncv",
+  "arm": "gfnet_matched",
+  "fold": 3,
+  "candidate": {
+    "id": "c2",
+    "lr": 0.0005,
+    "weight_decay": 0.05
+  },
+  "validation_scores": [
+    0.418878440374742,
+    0.47810819189094594,
+    0.4929046458987329
+  ],
+  "screening_tags": [
+    "canine_gfnet_matched_c0_s42_ncv3_screening",
+    "canine_gfnet_matched_c1_s42_ncv3_screening",
+    "canine_gfnet_matched_c2_s42_ncv3_screening"
+  ],
+  "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order",
+  "protocol_sha256": "26cec135560ed2ed681f67267af0c65ba0d0ced11f725bd7f2d89790fff65ed0",
+  "test_used": false
+}

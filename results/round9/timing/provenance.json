@@ -1,0 +1,24 @@
+{
+  "status": "completed",
+  "cells": 27,
+  "protocol_sha256": "4b3918a52d01cb421db0dd2195e001efcf5bbce6dc57c08b0154a8c901b88eb6",
+  "source_code_sha256": "22d47ae94e8e7ae7f12ff7ba4348ad75663c4d7e54f88e82ec2baefe6c0bd053",
+  "historical_full_test_equality": {
+    "source": "results/selected_efficiency/cache_equivalence.json",
+    "sha256": "4f8ae1a1931ab02b7fa39cfb4cdd4ed1223586b53c8f82cc0f783c6ac44ac6d4",
+    "images": 20808,
+    "max_logit_abs_difference": 0.0,
+    "argmax_agreement": 1.0,
+    "status": "reused previously completed proof; not rerun in this timing experiment"
+  },
+  "synthetic_equality_cells": 9,
+  "max_synthetic_logit_difference": 0.0,
+  "summary_sha256": "1d25a0d3cd149d5efc5f210561626f51812d2b95f81d7b9c9031f9006cf3f442",
+  "comparisons_sha256": "c1cbbc1175699676209a5cca6c74c1d62a7bfd69cbe2825cddff51ae7c3e22e4",
+  "limitations": [
+    "no training on other GPUs during the session; the desktop display is driven by another card (GPU 1)",
+    "allocator measurements, not GPU process memory; atom parameters retained with cache",
+    "three process repeats quantify this session, not independent hardware populations",
+    "cache-build time reported separately; checkpoint loading and preprocessing excluded"
+  ]
+}

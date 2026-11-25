@@ -1,0 +1,32 @@
+{
+  "source": "https://zenodo.org/records/10519652/files/bloodmnist_64.npz?download=1",
+  "published_md5": "2b94928a2ae4916078ca51e05b6b800b",
+  "actual_md5": "2b94928a2ae4916078ca51e05b6b800b",
+  "license": "CC BY 4.0",
+  "description": "The BloodMNIST is based on a dataset of individual normal cells, captured from individuals without infection, hematologic or oncologic disease and free of any pharmacologic treatment at the moment of blood collection. It contains a total of 17,092 images and is organized into 8 classes. We split the source dataset with a ratio of 7:1:2 into training, validation and test set. The source images with resolution 3×360×363 pixels are center-cropped into 3×200×200, and then resized into 3×28×28.",
+  "official_split_sizes": {
+    "train": 11959,
+    "val": 1712,
+    "test": 3421
+  },
+  "resolution": 64,
+  "labels": {
+    "0": "basophil",
+    "1": "eosinophil",
+    "2": "erythroblast",
+    "3": "immature granulocytes(myelocytes, metamyelocytes and promyelocytes)",
+    "4": "lymphocyte",
+    "5": "monocyte",
+    "6": "neutrophil",
+    "7": "platelet"
+  },
+  "pixel_hash_cross_split_overlap": {
+    "train_val": 3,
+    "train_test": 5,
+    "val_test": 1
+  },
+  "patient_or_lesion_ids_in_npz": false,
+  "clinical_canine_external_validation": false,
+  "known_dermamnist_lesion_leakage": false,
+  "leakage_reference": null
+}

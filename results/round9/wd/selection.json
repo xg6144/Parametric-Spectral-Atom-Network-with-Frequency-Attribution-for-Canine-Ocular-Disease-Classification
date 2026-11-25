@@ -1,0 +1,22 @@
+{
+  "arm": "gfnet_matched_wd",
+  "selected": "c2",
+  "trials": [
+    {
+      "candidate": "c0",
+      "best_validation_macro_f1": 0.42049057319823313,
+      "best_validation_epoch": 8
+    },
+    {
+      "candidate": "c1",
+      "best_validation_macro_f1": 0.4764689508529468,
+      "best_validation_epoch": 8
+    },
+    {
+      "candidate": "c2",
+      "best_validation_macro_f1": 0.4940659554826851,
+      "best_validation_epoch": 8
+    }
+  ],
+  "rule": "highest best validation Macro F1 within eight epochs; ties to the earlier candidate; no test data"
+}

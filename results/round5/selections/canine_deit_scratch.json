@@ -1,0 +1,22 @@
+{
+  "dataset": "canine",
+  "arm": "deit_scratch",
+  "candidate": {
+    "id": "c1",
+    "lr": 0.0003,
+    "weight_decay": 0.001
+  },
+  "validation_scores": [
+    0.5015547454389586,
+    0.5260815254062595,
+    0.5234635493141322
+  ],
+  "screening_tags": [
+    "canine_deit_scratch_c0_s42_screening",
+    "canine_deit_scratch_c1_s42_screening",
+    "canine_deit_scratch_c2_s42_screening"
+  ],
+  "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order",
+  "protocol_sha256": "ce6957db188562c509d18dee1d6f305045f80ac27634d4d5c5101af38e28c0bf",
+  "test_used": false
+}

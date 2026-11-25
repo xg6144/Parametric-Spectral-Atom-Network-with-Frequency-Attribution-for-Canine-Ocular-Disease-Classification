@@ -1,0 +1,12 @@
+{
+  "original_images": 3421,
+  "excluded_images": 6,
+  "retained_images": 3415,
+  "cross_split_shared_unique_rasters": {
+    "train_val": 3,
+    "train_test": 5,
+    "val_test": 1
+  },
+  "mask_recomputed_from_official_rasters": true,
+  "within_training_duplicate_copies": 8
+}

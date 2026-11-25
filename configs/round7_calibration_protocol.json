@@ -1,0 +1,61 @@
+{
+  "protocol": "round7_positive_vector_scaling_v1",
+  "frozen_on": "2026-11-09",
+  "post_hoc": true,
+  "prior_exposure": "All submitted corpus/test findings were known; not a blinded holdout.",
+  "models": [
+    "psan",
+    "gfnet_matched"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "regularization_candidates": [
+    0.0,
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0
+  ],
+  "fitting": "NLL on four validation folds; positive diagonal scale plus bias; shrink scale deviations from mean and biases",
+  "selection": "Lowest NLL on fifth visual-group-disjoint validation fold; ties favor stronger penalty; refit all validation",
+  "scalar": "Positive global temperature, minimum full-validation NLL; unchanged classifier decisions",
+  "evaluation": "Read test logits only after selection and refit for every model/seed; never select on test",
+  "metrics": "NLL, Brier, Macro F1, top-label 15-bin ECE, mean one-vs-rest class ECE; 10/20 bins descriptive sensitivity",
+  "inference": "B=10000 crossed visual-group x seed bootstrap; NLL/Brier/F1 vector-minus-temperature for two models, Holm6",
+  "classwise": "Per-class ECE descriptive, no class-specific significance claim",
+  "bootstrap_seed": 20261109,
+  "bootstrap_iterations": 10000,
+  "validation_partition_sha256": "58e527f4b0e4c44a81ecce69bce54d20e0d55f8aa66efa03bfe8f2269b742d79",
+  "fit_n": 16645,
+  "selection_n": 4162,
+  "inputs": {
+    "results/tuning/final/canine_psan_c2_s42_final/val_predictions.csv": "e7285918beb5a24f05a3e461393aa36c54ddbc7e73db3c361c56af3b8561c93d",
+    "results/tuning/final/canine_psan_c2_s42_final/test_predictions.csv": "8bc2396cd00bacd4f774ae9d4d12d20fc361b263adfa0f1cc9564cfcb95a823f",
+    "results/tuning/final/canine_psan_c2_s42_final/summary.json": "efe53f53416046cc70897c0b674987e61a05a33bcd5c7573ba1fd5d564409f7f",
+    "results/round3/tuning/final/canine_psan_c2_s43_final/val_predictions.csv": "b1c356b7809052d21cd6dcf90c793cc02e0dacdf757a13c0bf52e9a87930765c",
+    "results/round3/tuning/final/canine_psan_c2_s43_final/test_predictions.csv": "428c872167c229c7b7c9884fc52dae58cca168a0a3aaf3954c5daf9134536723",
+    "results/round3/tuning/final/canine_psan_c2_s43_final/summary.json": "b5e5eeb2a0bacd02deb9b764adbd314e34816af5eff54a6684f3470fd9406d9b",
+    "results/round3/tuning/final/canine_psan_c2_s44_final/val_predictions.csv": "2f642f66f35ed302e826036896b3c5848d563da0b4f678198ab501de0813c3b9",
+    "results/round3/tuning/final/canine_psan_c2_s44_final/test_predictions.csv": "e2045f23928ded95cbab51aa327015757103683d879ed61de50b3cfdce1c1c8f",
+    "results/round3/tuning/final/canine_psan_c2_s44_final/summary.json": "b7f8f5d2a9f3264e912c12c0e00e6dffdb2e5c3a803b7c3b08c434d8be49706f",
+    "results/round3/tuning/final/canine_gfnet_matched_c2_s42_final/val_predictions.csv": "9264035d588319e7573fded62b590c560062fec6e8b314f7015f109746e7a861",
+    "results/round3/tuning/final/canine_gfnet_matched_c2_s42_final/test_predictions.csv": "bfa9c2e64e03dd0dca6ab87fdb4ad2ea0aa0f1cd127e9810098efda21771befc",
+    "results/round3/tuning/final/canine_gfnet_matched_c2_s42_final/summary.json": "bb9d18e09e0b2c43a7ecfd3b5c7f838fe54390e5768088bab27c8c068685a17c",
+    "results/round3/tuning/final/canine_gfnet_matched_c2_s43_final/val_predictions.csv": "b95e6d64c1e94c9efd9d6a2c1071a0e7f29b396c11575b85b774af9c475b83e6",
+    "results/round3/tuning/final/canine_gfnet_matched_c2_s43_final/test_predictions.csv": "c66ee1faec9691e78585e2c16fb1c96688702d18819b4d45f1a2e6f7dacc5ed7",
+    "results/round3/tuning/final/canine_gfnet_matched_c2_s43_final/summary.json": "998ee34600d83a950ac95d033e4fcdeafdaf981e53629ee1c540e74f0075115d",
+    "results/round3/tuning/final/canine_gfnet_matched_c2_s44_final/val_predictions.csv": "5f3bab344bf2408b48f7fcb00da7bbcb2a1907c9f5768c828614f6227fcdc2e8",
+    "results/round3/tuning/final/canine_gfnet_matched_c2_s44_final/test_predictions.csv": "d60dcc89ab933193298a46c6fb4385c48ff5e60f22972c9a6e82b3c12ba8b0d8",
+    "results/round3/tuning/final/canine_gfnet_matched_c2_s44_final/summary.json": "410dd8e32d09a1accb57ad34f1d31515ab383a4dcfb8a5f8b846208a56bf3c25"
+  },
+  "sources": {
+    "experiments/round7_calibration.py": "cc670e9b49bf35483b114e021c17056fd43369749f7e05272c68a0a3a8911ddc",
+    "evaluation_metrics.py": "fcaac9f698adb6a26e59d966773f8aad1400f4233c8faa8e27d2073c9fbdadca",
+    "experiments/common.py": "0dbeae497d3d3bfeaa064b56a1af938da5a15cbb512acccebdaa33b7c0ea2a6d"
+  },
+  "primary_reference": "https://proceedings.mlr.press/v70/guo17a.html"
+}

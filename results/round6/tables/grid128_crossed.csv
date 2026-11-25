@@ -1,0 +1,2 @@
+comparison,seeds,runs,mean_delta,seed_sd,crossed_ci_low,crossed_ci_high,p_crossed,seed_level_t,seeds_positive,analysis,p_crossed_holm,family_size
+psan minus gfnet_matched,"42,43,44",3,0.01744889709104795,0.007843240887909757,0.005314485169947147,0.02946876920759678,0.006199380061993801,3.8533020634777633,3,"128-pixel input, crossed",0.006199380061993801,1

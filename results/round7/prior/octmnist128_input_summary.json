@@ -1,0 +1,11 @@
+{
+  "dataset": "octmnist128",
+  "samples": 256,
+  "classes": 4,
+  "natural_validation_counts": "See original split; the present sample and summaries weight classes equally.",
+  "sample_sha256": "56e98b749a8372eb2d6ba722e62d78b5fa40c1e85842b945d4fe6a1c57f8a9fe",
+  "dc_fraction": 0.516560692552901,
+  "low_non_dc_fraction": 0.959950552475227,
+  "centroid_non_dc": 0.10777963141349534,
+  "entropy_non_dc": 0.4249750344072484
+}

@@ -1,0 +1,195 @@
+{
+  "protocol": "round9_filter_weight_decay_and_step_matched_external_v1",
+  "frozen_on": "2026-11-13",
+  "post_hoc": true,
+  "not_a_blinded_holdout": true,
+  "prior_exposure": [
+    "All submitted and reviewer-driven canine and MedMNIST+ test results were known.",
+    "An internal pre-upload review had named unexplored dense-filter weight decay and the short optimizer-step budget of the two small external datasets as open explanations; the revised text stating both as untested was written before these runs."
+  ],
+  "questions": {
+    "wd": "Does the validation-selected PSAN advantage over the matched dense control persist when the dense filter receives the weight decay of its training setting?",
+    "steps": "Does the PSAN-control contrast on BloodMNIST and corrected DermaMNIST change when the fixed c2 recipe is trained for as many optimizer steps as a 30-epoch canine run?"
+  },
+  "common": {
+    "batch_size": 128,
+    "ema_decay": 0.999,
+    "gradient_clip": 1.0,
+    "stochastic_depth": 0.1,
+    "precision": "float32; CUDA matmul TF32 off",
+    "sampler": "inverse-square-root class weights, replacement, one training-set size of draws per epoch",
+    "checkpoint": "best EMA validation Macro F1",
+    "test": "evaluated once after validation selection; never used for selection"
+  },
+  "wd": {
+    "dataset": "canine (main audited split)",
+    "arm": "gfnet_matched_wd",
+    "model": "gfnet_matched",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "candidates": [
+      {
+        "id": "c0",
+        "lr": 0.0001,
+        "weight_decay": 0.001
+      },
+      {
+        "id": "c1",
+        "lr": 0.0003,
+        "weight_decay": 0.001
+      },
+      {
+        "id": "c2",
+        "lr": 0.0005,
+        "weight_decay": 0.05
+      }
+    ],
+    "screening": "8 epochs at seed 42, no early stopping, training/validation data only",
+    "selection": "highest best validation Macro F1; ties to the earlier candidate",
+    "final": {
+      "epochs": 30,
+      "patience": 10,
+      "warmup_epochs": 3,
+      "num_workers": 6
+    },
+    "no_weight_decay": [
+      "norm",
+      "mu",
+      "log_sigma",
+      "rho_raw",
+      "theta",
+      "log_amp",
+      "phi",
+      "w_real",
+      "w_imag",
+      "basis_real",
+      "basis_imag"
+    ],
+    "control_no_weight_decay": [
+      "norm",
+      "filter_real",
+      "filter_imag",
+      "mu",
+      "log_sigma",
+      "rho_raw",
+      "theta",
+      "log_amp",
+      "phi",
+      "w_real",
+      "w_imag",
+      "basis_real",
+      "basis_imag"
+    ],
+    "parameter_groups": {
+      "control": {
+        "decay": 3726144,
+        "no_decay": 537419
+      },
+      "with_filter_decay": {
+        "decay": 4242240,
+        "no_decay": 21323
+      }
+    },
+    "difference": "filter_real and filter_imag of the twelve dense filters move from the no-decay group to the decay group; architecture, initialization, data, sampler, schedule and selection rule are unchanged",
+    "comparators": {
+      "dense": "results/round3/tuning/final/canine_gfnet_matched_c2_s{seed}_final",
+      "psan": [
+        "results/tuning/final/canine_psan_c2_s42_final",
+        "results/round3/tuning/final/canine_psan_c2_s43_final",
+        "results/round3/tuning/final/canine_psan_c2_s44_final"
+      ],
+      "psan_ad0": "results/round3/tuning/final/canine_psan_ad0_c2_s{seed}_final"
+    }
+  },
+  "steps": {
+    "datasets": [
+      "bloodmnist128",
+      "dermamnist_c128"
+    ],
+    "arms": [
+      "psan_ad0",
+      "gfnet_matched",
+      "lowrank16"
+    ],
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "support_percentage": 100,
+    "candidate": "c2",
+    "lr": 0.0005,
+    "weight_decay": 0.05,
+    "num_workers": 4,
+    "early_stopping": false,
+    "cosine_over_full_budget": true,
+    "canine_reference": {
+      "training_images": 62422,
+      "optimizer_steps": 14640,
+      "warmup_steps": 1464
+    },
+    "schedules": {
+      "bloodmnist128": {
+        "training_images": 11959,
+        "split_sha256": "ef19474cbdcbe64df7b7e78ebd3c0bd452e0a8f0a6f426baa562c37658ab50b6",
+        "steps_per_epoch": 94,
+        "epochs": 156,
+        "warmup_epochs": 16,
+        "optimizer_steps": 14664
+      },
+      "dermamnist_c128": {
+        "training_images": 8215,
+        "split_sha256": "b16bfab357adae4b6c8af4c5b46b1696ca2aa03f4b630ab34fa61e1e3b66c8ee",
+        "steps_per_epoch": 65,
+        "epochs": 225,
+        "warmup_epochs": 23,
+        "optimizer_steps": 14625
+      }
+    },
+    "no_weight_decay": [
+      "norm",
+      "filter_real",
+      "filter_imag",
+      "mu",
+      "log_sigma",
+      "rho_raw",
+      "theta",
+      "log_amp",
+      "phi",
+      "w_real",
+      "w_imag",
+      "basis_real",
+      "basis_imag"
+    ],
+    "short_schedule_counterparts": "results/round7/support/final/{dataset}_{arm}_f100_c2_s{seed}_final (30 epochs, 3 warm-up epochs; otherwise the same recipe, data order and initialization)"
+  },
+  "statistics": {
+    "bootstrap": 10000,
+    "seed": 20261113,
+    "resampling": "crossed bootstrap of test groups (visual groups for canine, lesions for corrected Derma, images for Blood) and the three seed indices; 95% percentile intervals, unadjusted",
+    "families": {
+      "wd": "3 Holm-adjusted contrasts: dense with filter decay minus dense; PSAN (AD 0.2) minus dense with filter decay; PSAN (AD 0) minus dense with filter decay",
+      "steps_simple": "per dataset, 2 Holm-adjusted contrasts at the step-matched schedule: PSAN (AD 0) minus matched dense and minus free rank-16",
+      "steps_interaction": "per dataset, 2 Holm-adjusted contrasts: (PSAN minus control) at the step-matched schedule minus the same contrast at 30 epochs"
+    },
+    "all_runs": "every screening trial, final run and contrast is reported; no outcome-based extension or exclusion"
+  },
+  "replay": "results/round9/checks/replay.json: first epoch of three archived runs reproduced by this code before freezing",
+  "source_code_sha256": {
+    "experiments/round9.py": "b80fe232e132b40f47837b93a25b8ce6f2ca1dd49dc3b4e195abb93266027966",
+    "experiments/round9_analysis.py": "dd6d500c89fb77265fd0172e7a11bb9cd15bfc775b9dce8f3145c829c5fa6e0e",
+    "experiments/common.py": "0dbeae497d3d3bfeaa064b56a1af938da5a15cbb512acccebdaa33b7c0ea2a6d",
+    "experiments/round3.py": "49e3a95fcff7098c68d82b282c73f7d813402adfef6f0dd10956eb0cb01c372e",
+    "experiments/round6.py": "38c899133437ce263f687c76157af1eafe6661a188e65c88e769abcdec806fb7",
+    "experiments/round7_support.py": "33569fd7d1c4b10d669d30c8a0654c4bcff5d7311f8a23c4c45ec4ff9af1d889",
+    "experiments/training.py": "9b90040a70ba68089a16c4ba8de5653b4032509192f6f33e8e7edc5daae9a7b6",
+    "models/psan.py": "364682b9a49889004344312de268b16cb97085fbab369aea20e489453a805cd1",
+    "models/gfnet.py": "7589309b2e4e4602b61987a886d133357323ce151eb34575b8e31e2b84a1732f",
+    "models/lowrank.py": "dcc8470e4433a13cc547cb0e105cfa99533cb567497bc00f209318e7986642de",
+    "train/train_base.py": "5e6073e8e5c1eb17c687e4e3b75c948b91cc389902eb9e4a7904d9a164762337",
+    "evaluation_metrics.py": "fcaac9f698adb6a26e59d966773f8aad1400f4233c8faa8e27d2073c9fbdadca"
+  }
+}

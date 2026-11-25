@@ -1,0 +1,22 @@
+{
+  "dataset": "canine",
+  "arm": "swin_scratch",
+  "candidate": {
+    "id": "c0",
+    "lr": 0.0001,
+    "weight_decay": 0.001
+  },
+  "validation_scores": [
+    0.5716029419800719,
+    0.5372978624935488,
+    0.47154339052930233
+  ],
+  "screening_tags": [
+    "canine_swin_scratch_c0_s42_screening",
+    "canine_swin_scratch_c1_s42_screening",
+    "canine_swin_scratch_c2_s42_screening"
+  ],
+  "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order",
+  "protocol_sha256": "ce6957db188562c509d18dee1d6f305045f80ac27634d4d5c5101af38e28c0bf",
+  "test_used": false
+}

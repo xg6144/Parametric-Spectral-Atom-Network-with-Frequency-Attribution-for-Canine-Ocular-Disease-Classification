@@ -1,0 +1,84 @@
+{
+  "protocol_sha256": "26cec135560ed2ed681f67267af0c65ba0d0ced11f725bd7f2d89790fff65ed0",
+  "bootstrap": 10000,
+  "outputs": {
+    "nested_cv": {
+      "folds": {
+        "psan_ad0": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "lowrank16": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "psan": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "gfnet_matched": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "pooled": 4
+    },
+    "disease_only": {
+      "runs": 9,
+      "family": 2
+    },
+    "disease72_posthoc": {
+      "runs": 9,
+      "family": 2
+    },
+    "long_training": {
+      "runs": 9,
+      "family": 2
+    },
+    "grid128": {
+      "runs": 6,
+      "family": 1
+    }
+  },
+  "selections": {
+    "dis_gfnet_matched": "c2",
+    "dis_lowrank16": "c2",
+    "dis_psan": "c1",
+    "g128_gfnet_matched": "c2",
+    "g128_psan": "c2",
+    "ncv_gfnet_matched_fold2": "c2",
+    "ncv_gfnet_matched_fold3": "c2",
+    "ncv_gfnet_matched_fold4": "c2",
+    "ncv_gfnet_matched_fold5": "c2",
+    "ncv_lowrank16_fold2": "c2",
+    "ncv_lowrank16_fold3": "c2",
+    "ncv_lowrank16_fold4": "c2",
+    "ncv_lowrank16_fold5": "c2",
+    "ncv_psan_ad0_fold2": "c2",
+    "ncv_psan_ad0_fold3": "c2",
+    "ncv_psan_ad0_fold4": "c2",
+    "ncv_psan_ad0_fold5": "c2",
+    "ncv_psan_fold2": "c2",
+    "ncv_psan_fold3": "c2",
+    "ncv_psan_fold4": "c2",
+    "ncv_psan_fold5": "c2"
+  },
+  "source_sha256": {
+    "experiments/round6_analysis.py": "a8fa4d1bac687e6a2a03f99661021370dd17c49acf9019e513fda3bbc3a492a9",
+    "experiments/round4_analysis.py": "261f521e2d4a1e4ded029ecf523f09b57a74d2a30682c60dffe38e91e6052b8f",
+    "experiments/round3_analysis.py": "9047da9c331f58514f8beea97280fcae73f657c87fd161e39d157232f66f0f81",
+    "experiments/round6.py": "38c899133437ce263f687c76157af1eafe6661a188e65c88e769abcdec806fb7"
+  }
+}

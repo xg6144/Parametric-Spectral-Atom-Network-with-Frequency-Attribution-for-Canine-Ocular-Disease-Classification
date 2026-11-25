@@ -1,0 +1,133 @@
+{
+  "protocol": "round7_dropout_long_completion_v1",
+  "frozen_on": "2026-11-09",
+  "post_hoc": true,
+  "not_a_blinded_holdout": true,
+  "motivation": "Complete missing 100-epoch AD0 seeds to assess the practical dropout recommendation.",
+  "prior_exposure": [
+    "all submitted canine and MedMNIST+ results, including the single-seed 100-epoch AD0.2 advantage and the 30-epoch dropout deficit"
+  ],
+  "new_runs": [
+    {
+      "exp": "long",
+      "kind": "final",
+      "arm": "psan_ad0",
+      "candidate": "c2",
+      "seed": 43
+    },
+    {
+      "exp": "long",
+      "kind": "final",
+      "arm": "psan_ad0",
+      "candidate": "c2",
+      "seed": 44
+    }
+  ],
+  "reference_runs": {
+    "psan_42": {
+      "directory": "results/round4/long/canine_psan_c2_s42_long100",
+      "config_sha256": "33628893cab2793d0d0fb438aa0ec963979d7012b7f188cb9951fdb73e8a6593",
+      "summary_sha256": "c61cd618db5c3e208b80fb6c8625f87a3ae1b0745426cb06a3199e225835ff73",
+      "checkpoint_sha256": "bd06b2511ed3dccc693fa471357125734b36980f6a088d06fd6eb01df7d09d90"
+    },
+    "psan_43": {
+      "directory": "results/round6/long/canine_psan_c2_s43_long100",
+      "config_sha256": "3f3573c7b059e22d31afecc948ac3859f4ef51eb6bbb4f54b9ccbbd8743ed5d5",
+      "summary_sha256": "65d5ce58450cc1af96688e7942b750efb5393d9c5427745e4e7b078d31ceec64",
+      "checkpoint_sha256": "c50f96de012106d5b20fbaf25f8af8f482f378e8cdceb29171bed78caeec5c4b"
+    },
+    "psan_44": {
+      "directory": "results/round6/long/canine_psan_c2_s44_long100",
+      "config_sha256": "f95cace979396d5502efcf4c5103625661c827e3297dd5110d723a883312fc17",
+      "summary_sha256": "74603fc737bf1b026a575c76238048596fd331115de34279881171902d46ebeb",
+      "checkpoint_sha256": "f40ce5d15de8d560b82f67f6493f536564e411c639132b3f32a2ea63ec90575a"
+    },
+    "psan_ad0_42": {
+      "directory": "results/round4/long/canine_psan_ad0_c2_s42_long100",
+      "config_sha256": "13a0c5af5e19d3ad36eb0599083d6edede8e10834f1223baa6bb402c0cfc6bb9",
+      "summary_sha256": "074390e04145d1c38f1724d7851c01689baf761a4b0bac74f313909780d71c3f",
+      "checkpoint_sha256": "591d52b40a1ee30567aa719c46151550fd3bab901acd72da833b2592da0167c0"
+    }
+  },
+  "split_sha256": "943e11e906a9eb4e54fa9ecefeb37c8ca589c64f1d0b81e7c2471881e101cce7",
+  "arms": {
+    "psan_ad0": {
+      "name": "psan",
+      "atoms": 16,
+      "atom_dropout": 0.0
+    }
+  },
+  "common": {
+    "batch_size": 128,
+    "num_workers": 6,
+    "ema_decay": 0.999,
+    "gradient_clip": 1.0,
+    "warmup_epochs": 3,
+    "stochastic_depth": 0.1,
+    "sampler": "inverse-square-root class-weighted replacement sampling",
+    "precision": "float32 tensors; CUDA matmul TF32 off; cuDNN convolution TF32 default",
+    "no_weight_decay": [
+      "norm",
+      "filter_real",
+      "filter_imag",
+      "mu",
+      "log_sigma",
+      "rho_raw",
+      "theta",
+      "log_amp",
+      "phi",
+      "w_real",
+      "w_imag",
+      "basis_real",
+      "basis_imag"
+    ]
+  },
+  "training": {
+    "implementation": "experiments.round6.train, unchanged",
+    "epochs": 100,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.05,
+    "early_stopping": false,
+    "selection": "best validation Macro F1 checkpoint; final test evaluation only after training",
+    "augmentation": "same 224px canine pipeline as rounds4 and6",
+    "concurrency": "two jobs on physical GPU0 only; no throughput claims from training times"
+  },
+  "replay": {
+    "reference": "results/round4/long/canine_psan_ad0_c2_s42_long100",
+    "full_dataset_first_epoch": true,
+    "criterion": "train loss and validation Macro F1 agree after rounding to six decimal places"
+  },
+  "statistics": {
+    "bootstrap": 10000,
+    "seed": 20261109,
+    "ci": "crossed visual-group by seed bootstrap, paired predictions and shared group resamples",
+    "primary_family": [
+      "100-epoch AD0.2 minus AD0",
+      "(100-epoch AD0.2 minus AD0) minus (30-epoch AD0.2 minus AD0)"
+    ],
+    "correction": "Holm across the two crossed contrasts",
+    "per_seed": "descriptive paired percentile intervals; no per-seed significance claims",
+    "interpretation": "post hoc within-corpus schedule/dropout evidence; no patient-level independence"
+  },
+  "forbidden_selection_inputs": [
+    "test images",
+    "test labels",
+    "test scores"
+  ],
+  "source_code_sha256": {
+    "evaluation_metrics.py": "fcaac9f698adb6a26e59d966773f8aad1400f4233c8faa8e27d2073c9fbdadca",
+    "experiments/common.py": "0dbeae497d3d3bfeaa064b56a1af938da5a15cbb512acccebdaa33b7c0ea2a6d",
+    "experiments/round3_analysis.py": "9047da9c331f58514f8beea97280fcae73f657c87fd161e39d157232f66f0f81",
+    "experiments/round6.py": "38c899133437ce263f687c76157af1eafe6661a188e65c88e769abcdec806fb7",
+    "experiments/round7_dropout.py": "73d0a183db8006c02392719c7c9982e7bab4af24e9fd1b556215f6a09ea1148b",
+    "experiments/training.py": "9b90040a70ba68089a16c4ba8de5653b4032509192f6f33e8e7edc5daae9a7b6",
+    "models/gfnet.py": "7589309b2e4e4602b61987a886d133357323ce151eb34575b8e31e2b84a1732f",
+    "models/lowrank.py": "dcc8470e4433a13cc547cb0e105cfa99533cb567497bc00f209318e7986642de",
+    "models/psan.py": "364682b9a49889004344312de268b16cb97085fbab369aea20e489453a805cd1",
+    "train/train_base.py": "5e6073e8e5c1eb17c687e4e3b75c948b91cc389902eb9e4a7904d9a164762337"
+  },
+  "environment": {
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0"
+  }
+}

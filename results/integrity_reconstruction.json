@@ -1,0 +1,16 @@
+{
+  "current_retained": 104037,
+  "frozen_retained": 104053,
+  "frozen_pixel_duplicate_rows": 0,
+  "frozen_retained_current_status": {
+    "keep": 103980,
+    "exclude_duplicate": 69,
+    "exclude_label_conflict": 4
+  },
+  "retained_candidate_pairs": 2541,
+  "retained_verified_pairs": 54,
+  "cross_split_candidate_pairs": 3,
+  "cross_group_candidate_pairs": 9,
+  "frozen_only_paths": 73,
+  "reconstruction_only_paths": 57
+}

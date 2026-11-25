@@ -1,0 +1,2 @@
+comparison,seeds,runs,mean_delta,seed_sd,crossed_ci_low,crossed_ci_high,p_crossed,seed_level_t,seeds_positive
+tuned psan minus psan_ad0,"42,43,44",3,-0.00339725427249001,0.003365487379879779,-0.01139321643859148,0.004667126573622227,0.3735626437356264,-1.7483996645957811,1

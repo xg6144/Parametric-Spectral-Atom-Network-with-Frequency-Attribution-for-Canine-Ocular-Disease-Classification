@@ -1,0 +1,22 @@
+{
+  "dataset": "canine",
+  "arm": "fixedatom16",
+  "candidate": {
+    "id": "c2",
+    "lr": 0.0005,
+    "weight_decay": 0.05
+  },
+  "validation_scores": [
+    0.3932702365847074,
+    0.44781011733722276,
+    0.4780886922874157
+  ],
+  "screening_tags": [
+    "canine_fixedatom16_c0_s42_screening",
+    "canine_fixedatom16_c1_s42_screening",
+    "canine_fixedatom16_c2_s42_screening"
+  ],
+  "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order",
+  "protocol_sha256": "d70798b0c01713e997d8522dc757ca0f51d5916a81a5259cee1beb760a523bc6",
+  "test_used": false
+}

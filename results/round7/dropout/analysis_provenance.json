@@ -1,0 +1,31 @@
+{
+  "protocol_sha256": "361c05a7905b3a9220144585d0217372731ac59ceaa7cfd559def7f1ff97e80a",
+  "inputs": {
+    "results/round4/long/canine_psan_ad0_c2_s42_long100/test_predictions.csv": "ce10436986a94068f191717876311615cf336ac5cdeba25b4d4cff1d94fb1ecd",
+    "results/round4/long/canine_psan_c2_s42_long100/test_predictions.csv": "de1eefd9613359cf4dafbb15dbdf495d7fad13158c36ffb74b5e236bd5bb9fd6",
+    "results/round6/long/canine_psan_c2_s43_long100/test_predictions.csv": "efdaba8de2a18199a1950969be3401623ab3934b3f439b49e018d78efcb06028",
+    "results/round6/long/canine_psan_c2_s44_long100/test_predictions.csv": "53f0bb2304365c667edc2a6829e4e9b552aed521bcaecc22f290b91047666d66",
+    "results/round7/dropout/long/canine_psan_ad0_c2_s43_long100/test_predictions.csv": "8318315c0da0f0b16c8173c6622b81394bea12db5e1c9c9add7d8a2a434c6d56",
+    "results/round7/dropout/long/canine_psan_ad0_c2_s44_long100/test_predictions.csv": "972137e6f9cec7bef6f1a7933c48a311e631994975ef9edaaa579a4d19d7f41f",
+    "results/tuning/final/canine_psan_c2_s42_final/test_predictions.csv": "8bc2396cd00bacd4f774ae9d4d12d20fc361b263adfa0f1cc9564cfcb95a823f",
+    "results/round3/tuning/final/canine_psan_c2_s43_final/test_predictions.csv": "428c872167c229c7b7c9884fc52dae58cca168a0a3aaf3954c5daf9134536723",
+    "results/round3/tuning/final/canine_psan_c2_s44_final/test_predictions.csv": "e2045f23928ded95cbab51aa327015757103683d879ed61de50b3cfdce1c1c8f",
+    "results/round3/tuning/final/canine_psan_ad0_c2_s42_final/test_predictions.csv": "c1254f3eb154dae4e4bcf9f093e89cd5cc8e22468dfb22ba53b39a44ca9fac19",
+    "results/round3/tuning/final/canine_psan_ad0_c2_s43_final/test_predictions.csv": "93711fe1db7a4e84abf78f36d5fccecdf789a4cf045fbeda6588ff0dfda06d13",
+    "results/round3/tuning/final/canine_psan_ad0_c2_s44_final/test_predictions.csv": "8b4914554a14085defce0d502654894de2756b42c0e01a3add952bb388ba4063"
+  },
+  "statistics": {
+    "bootstrap": 10000,
+    "seed": 20261109,
+    "ci": "crossed visual-group by seed bootstrap, paired predictions and shared group resamples",
+    "primary_family": [
+      "100-epoch AD0.2 minus AD0",
+      "(100-epoch AD0.2 minus AD0) minus (30-epoch AD0.2 minus AD0)"
+    ],
+    "correction": "Holm across the two crossed contrasts",
+    "per_seed": "descriptive paired percentile intervals; no per-seed significance claims",
+    "interpretation": "post hoc within-corpus schedule/dropout evidence; no patient-level independence"
+  },
+  "all_declared_contrasts_reported": true,
+  "note": "Post hoc within-corpus comparison. Three seeds and unknown patient dependence limit inference."
+}

@@ -1,0 +1,24 @@
+{
+  "source": "https://github.com/kakumarabhishek/Corrected-Skin-Image-Datasets",
+  "mapping": "combined_metadata_corrected-HAM10000_corrected.csv",
+  "mapping_sha256": "c27194d338986463966e1694d5b49fda933222368f04b316c702ac2e8a0d4f5c",
+  "official_mapping_sha256": "0c9b1719bf04fa9ad3cdee2a852067a8b848795624e88ea794df40fd13c099f0",
+  "raster_source": "official MedMNIST+64; primary author mapping reapplied locally",
+  "license": "CC BY-NC4.0 (original images); Apache2.0 (analysis code)",
+  "split_sizes": {
+    "train": 8215,
+    "val": 573,
+    "test": 1227
+  },
+  "resolution": 64,
+  "lesion_overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "original_standard_split_leaking_lesions": 1006,
+  "all_10015_npz_labels_match_published_image_mapping": true,
+  "patient_independence_established": false,
+  "lesion_group_split_verified": true,
+  "clinical_canine_external_validation": false
+}

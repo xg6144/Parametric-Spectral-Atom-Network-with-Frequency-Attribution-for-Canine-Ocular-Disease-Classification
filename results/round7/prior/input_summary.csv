@@ -1,0 +1,5 @@
+dataset,samples,classes,natural_validation_counts,sample_sha256,dc_fraction,low_non_dc_fraction,centroid_non_dc,entropy_non_dc
+bloodmnist128,512,8,See original split; the present sample and summaries weight classes equally.,59c45bc315bc2753c498873ae3d1204ec58c5990ee5d9a22addba918d0c008b9,0.9265567512131981,0.9944208466560982,0.05006411521212826,0.40350150744100943
+canine128,704,11,See original split; the present sample and summaries weight classes equally.,b0b16bd859622c7a468cf4baa69c2787aaed1b281639c65dea213c793fe2febd,0.5333561234635996,0.9893558827869321,0.055987870095968124,0.4004222456241988
+dermamnist_c128,189,7,See original split; the present sample and summaries weight classes equally.,32360ce507b5c4c6c1fce1f64195cfc4183b59d34d74a0b79906c1a50ddd49a7,0.9700680826305466,0.9824405844909646,0.06108034113085286,0.41658882766185384
+octmnist128,256,4,See original split; the present sample and summaries weight classes equally.,56e98b749a8372eb2d6ba722e62d78b5fa40c1e85842b945d4fe6a1c57f8a9fe,0.516560692552901,0.959950552475227,0.10777963141349534,0.4249750344072484

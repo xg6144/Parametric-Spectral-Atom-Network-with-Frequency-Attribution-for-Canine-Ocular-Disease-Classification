@@ -1,0 +1,22 @@
+{
+  "dataset": "octmnist128",
+  "arm": "psan",
+  "candidate": {
+    "id": "c1",
+    "lr": 0.0003,
+    "weight_decay": 0.001
+  },
+  "validation_scores": [
+    0.8682863701026604,
+    0.8857655674458443,
+    0.8830629384519622
+  ],
+  "screening_tags": [
+    "octmnist128_psan_c0_s42_screening",
+    "octmnist128_psan_c1_s42_screening",
+    "octmnist128_psan_c2_s42_screening"
+  ],
+  "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order",
+  "protocol_sha256": "ce4aba5a0a92889db82c7350d4732f0baa4d5de7e37f300701caf5f07562d9e7",
+  "test_used": false
+}

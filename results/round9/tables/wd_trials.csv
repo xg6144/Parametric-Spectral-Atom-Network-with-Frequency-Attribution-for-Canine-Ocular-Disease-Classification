@@ -1,0 +1,4 @@
+candidate,best_validation_macro_f1,best_validation_epoch,arm,selected
+c0,0.42049057319823313,8,gfnet_matched_wd,False
+c1,0.4764689508529468,8,gfnet_matched_wd,False
+c2,0.4940659554826851,8,gfnet_matched_wd,True

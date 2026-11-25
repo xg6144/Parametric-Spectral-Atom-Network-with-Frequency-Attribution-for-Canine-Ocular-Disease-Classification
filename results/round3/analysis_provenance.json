@@ -1,0 +1,35 @@
+{
+  "bootstrap": 10000,
+  "bootstrap_seed": 2026,
+  "minimum_two_sided_p": 0.00019998000199980003,
+  "resampling": "paired multinomial resampling of evaluation groups shared by all compared models",
+  "canine_groups": "visual groups (not dog/visit/hospital identities)",
+  "across_seed": "crossed bootstrap of groups and seed indices; seed-level paired t is descriptive",
+  "families": {
+    "round2_primary": "Bonferroni 18",
+    "round2_ofat": "Bonferroni 10",
+    "round2_factorial": "Bonferroni 24",
+    "round2_tuned": "Bonferroni 7",
+    "round3": "Holm within family"
+  },
+  "post_hoc": [
+    "common-preset dense-filter controls were computed after round-2 test results were observed",
+    "disease-only analysis was added after round-2 test results were observed"
+  ],
+  "audit": {
+    "conflict_images": 66078,
+    "conflict_groups": 22901,
+    "groups_including_normal": 2,
+    "classes_per_group": {
+      "2": 13705,
+      "3": 6351,
+      "4": 2108,
+      "5": 556,
+      "6": 154,
+      "7": 24,
+      "8": 3
+    }
+  },
+  "protocol_sha256": "ce4aba5a0a92889db82c7350d4732f0baa4d5de7e37f300701caf5f07562d9e7",
+  "source_code_sha256": "9047da9c331f58514f8beea97280fcae73f657c87fd161e39d157232f66f0f81"
+}

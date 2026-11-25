@@ -1,0 +1,11 @@
+{
+  "dataset": "dermamnist_c128",
+  "samples": 189,
+  "classes": 7,
+  "natural_validation_counts": "See original split; the present sample and summaries weight classes equally.",
+  "sample_sha256": "32360ce507b5c4c6c1fce1f64195cfc4183b59d34d74a0b79906c1a50ddd49a7",
+  "dc_fraction": 0.9700680826305466,
+  "low_non_dc_fraction": 0.9824405844909646,
+  "centroid_non_dc": 0.06108034113085286,
+  "entropy_non_dc": 0.41658882766185384
+}

@@ -1,0 +1,28 @@
+{
+  "source": "https://zenodo.org/records/10519652/files/octmnist_64.npz?download=1",
+  "published_md5": "e229e9440236b774d9f0dfef9d07bdaf",
+  "actual_md5": "e229e9440236b774d9f0dfef9d07bdaf",
+  "license": "CC BY 4.0",
+  "description": "The OCTMNIST is based on a prior dataset of 109,309 valid optical coherence tomography (OCT) images for retinal diseases. The dataset is comprised of 4 diagnosis categories, leading to a multi-class classification task. We split the source training set with a ratio of 9:1 into training and validation set, and use its source validation set as the test set. The source images are gray-scale, and their sizes are (384−1,536)×(277−512). We center-crop the images and resize them into 1×28×28.",
+  "official_split_sizes": {
+    "train": 97477,
+    "val": 10832,
+    "test": 1000
+  },
+  "resolution": 64,
+  "labels": {
+    "0": "choroidal neovascularization",
+    "1": "diabetic macular edema",
+    "2": "drusen",
+    "3": "normal"
+  },
+  "pixel_hash_cross_split_overlap": {
+    "train_val": 1334,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "patient_or_lesion_ids_in_npz": false,
+  "clinical_canine_external_validation": false,
+  "known_dermamnist_lesion_leakage": false,
+  "leakage_reference": null
+}

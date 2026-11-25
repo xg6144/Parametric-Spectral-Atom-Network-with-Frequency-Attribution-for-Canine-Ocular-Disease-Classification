@@ -1,0 +1,22 @@
+{
+  "dataset": "canine",
+  "arm": "gfnet_matched",
+  "candidate": {
+    "id": "c2",
+    "lr": 0.0005,
+    "weight_decay": 0.05
+  },
+  "validation_scores": [
+    0.4263775817452753,
+    0.47480942723688563,
+    0.49473401196384015
+  ],
+  "screening_tags": [
+    "canine_gfnet_matched_c0_s42_screening",
+    "canine_gfnet_matched_c1_s42_screening",
+    "canine_gfnet_matched_c2_s42_screening"
+  ],
+  "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order",
+  "protocol_sha256": "ce4aba5a0a92889db82c7350d4732f0baa4d5de7e37f300701caf5f07562d9e7",
+  "test_used": false
+}

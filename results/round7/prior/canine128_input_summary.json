@@ -1,0 +1,11 @@
+{
+  "dataset": "canine128",
+  "samples": 704,
+  "classes": 11,
+  "natural_validation_counts": "See original split; the present sample and summaries weight classes equally.",
+  "sample_sha256": "b0b16bd859622c7a468cf4baa69c2787aaed1b281639c65dea213c793fe2febd",
+  "dc_fraction": 0.5333561234635996,
+  "low_non_dc_fraction": 0.9893558827869321,
+  "centroid_non_dc": 0.055987870095968124,
+  "entropy_non_dc": 0.4004222456241988
+}

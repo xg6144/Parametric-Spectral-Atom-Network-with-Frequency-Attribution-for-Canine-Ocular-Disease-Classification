@@ -1,0 +1,7 @@
+arm,seed,macro_f1,validation_macro_f1,best_epoch,epochs_completed,source
+psan,42,0.6992831220514724,0.7056455766409836,61,100,results/round4/long/canine_psan_c2_s42_long100
+psan,43,0.697685117742299,0.7029318782505359,71,100,results/round6/long/canine_psan_c2_s43_long100
+psan,44,0.6942541253545257,0.7129146001302694,49,100,results/round6/long/canine_psan_c2_s44_long100
+psan_ad0,42,0.6915758036258508,0.7007561365775756,55,100,results/round4/long/canine_psan_ad0_c2_s42_long100
+psan_ad0,43,0.6855672562596685,0.6843277005310141,81,100,results/round7/dropout/long/canine_psan_ad0_c2_s43_long100
+psan_ad0,44,0.6823340806060233,0.6947919698835008,34,100,results/round7/dropout/long/canine_psan_ad0_c2_s44_long100

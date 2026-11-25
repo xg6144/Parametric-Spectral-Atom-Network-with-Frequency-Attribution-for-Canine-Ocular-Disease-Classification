@@ -1,16 +1,15 @@
-"""Check the released files. Needs numpy, pandas and scikit-learn, but neither the images nor a GPU.
+"""Check the release files and frozen sources using NumPy, pandas and scikit-learn.
 
 1. Every source file whose SHA-256 a protocol in configs/ records is unchanged: it matches the released file or, for
    the round-2 protocols, the frozen round-2 sources in revision_history/20261013_round2_training_source/.
-2. For every run, the Macro F1 recomputed from its per-image test predictions equals the value stored with the run;
-   likewise for the out-of-fold predictions of the outer cross-validation and for the stored predictions of the
-   earlier, unaudited study (eval_results/).
-3. The split manifest assigns every image, image hash and visual group to a single fold.
+2. Recompute Macro F1 for the prediction files present in the release.
+3. If a local audited split is present, check that each image, hash and group belongs to a single fold.
 
     python tools/verify_release.py
 """
 from __future__ import annotations
 
+import csv
 import hashlib
 import json
 import re
@@ -31,6 +30,26 @@ def sha256(path):
         for chunk in iter(lambda: f.read(1 << 20), b''):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def check_manifest():
+    manifest = ROOT / 'MANIFEST.csv'
+    files = set()
+    failures = []
+    with manifest.open(newline='') as stream:
+        for row in csv.DictReader(stream):
+            relative = row['path']
+            path = ROOT / relative
+            if relative in files or not path.resolve().is_relative_to(ROOT) or path == manifest:
+                failures.append(f'invalid manifest path: {relative}')
+                continue
+            files.add(relative)
+            if not path.is_file():
+                failures.append(f'missing release file: {relative}')
+            elif path.stat().st_size != int(row['bytes']) or sha256(path) != row['sha256']:
+                failures.append(f'release file differs from its manifest: {relative}')
+    print(f'Manifest: {len(files)} files checked.')
+    return failures
 
 
 def fingerprints():
@@ -86,6 +105,9 @@ def check_predictions():
     pairs += [(p, p.with_name(p.name.replace('_predictions.csv.gz', '_eval_metrics.json')), 'true_label', 'prob_')
               for p in sorted((ROOT / 'eval_results').glob('*_predictions.csv.gz'))]
     for predictions, metrics, label, prefix in pairs:
+        if not metrics.is_file():
+            failures.append(f'missing metrics for {predictions.relative_to(ROOT)}')
+            continue
         stored = json.loads(metrics.read_text())['metrics']['macro_f1']
         recomputed = macro_f1(predictions, label, 'pred_label', prefix)
         checked += 1
@@ -96,7 +118,13 @@ def check_predictions():
 
 
 def check_split():
-    split = pd.read_csv(ROOT / 'results/corrected_sgkf5.csv', keep_default_na=False)
+    path = ROOT / 'results/corrected_sgkf5.csv'
+    if not path.is_file():
+        path = ROOT / 'results/revision_split.csv'
+        if not path.is_file():
+            print('Split: check available after local audit (see Data in README.md).')
+            return []
+    split = pd.read_csv(path, keep_default_na=False)
     failures = []
     for column in ['path', 'sha256']:
         if split[column].duplicated().any():
@@ -111,7 +139,7 @@ def check_split():
 
 
 def main():
-    failures = check_sources() + check_predictions() + check_split()
+    failures = check_manifest() + check_sources() + check_predictions() + check_split()
     for failure in failures:
         print('FAILED:', failure)
     print('All checks passed.' if not failures else f'{len(failures)} checks failed.')

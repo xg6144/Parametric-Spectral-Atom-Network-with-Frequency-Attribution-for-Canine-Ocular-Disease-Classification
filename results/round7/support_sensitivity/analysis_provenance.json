@@ -1,0 +1,71 @@
+{
+  "status": "COMPLETED",
+  "completed_cells": 54,
+  "protocol_sha256": "e3c3ac1480faa80dc03a7cb0510ece76537468567364f4fb8fa1ec37a26d4e41",
+  "primary_analysis_provenance_sha256": "e5ac1fbcbfb37be707d3833cbd1d646b4ccc1424f97536c5284b7e6d00b58417",
+  "no_classifier_outcome_selection": true,
+  "source_code_sha256": {
+    "experiments/round7_support_sensitivity.py": "5531da3e5b86fb403ccc265ab715d28d4a6484dc3c204080f80abf8e917adc22",
+    "experiments/round7_support.py": "33569fd7d1c4b10d669d30c8a0654c4bcff5d7311f8a23c4c45ec4ff9af1d889",
+    "experiments/round7_support_analysis.py": "3497b0ef89bed42a9602f53b14c8ffed369460978cbaa5dbeda03cea264602a0",
+    "experiments/round3_analysis.py": "9047da9c331f58514f8beea97280fcae73f657c87fd161e39d157232f66f0f81",
+    "experiments/common.py": "0dbeae497d3d3bfeaa064b56a1af938da5a15cbb512acccebdaa33b7c0ea2a6d"
+  },
+  "audit": {
+    "bloodmnist128": {
+      "npz": "results/external_data/round3_128/bloodmnist_128.npz",
+      "npz_sha256": "2c2c2a1787db749abcac06779eb6988c2a3919445f01617ada7fe1468828fa96",
+      "provenance": "results/external_data/round3_128/bloodmnist128_provenance.json",
+      "provenance_sha256": "ef19474cbdcbe64df7b7e78ebd3c0bd452e0a8f0a6f426baa562c37658ab50b6",
+      "mask": "results/round7/support_sensitivity/bloodmnist128_test_mask.csv",
+      "mask_sha256": "760a9848b40fcf87e327ce543a10e856f11141de4e6862726c5086faa75a2457",
+      "audit": {
+        "dataset": "bloodmnist128",
+        "train_images": 11959,
+        "validation_images": 1712,
+        "test_images": 3421,
+        "retained_test_images": 3415,
+        "excluded_test_images": 6,
+        "train_unique_rasters": 11951,
+        "validation_unique_rasters": 1712,
+        "test_unique_rasters": 3421,
+        "train_validation_shared_unique_rasters": 3,
+        "train_test_shared_unique_rasters": 5,
+        "validation_test_shared_unique_rasters": 1
+      },
+      "excluded_by_class": {
+        "0": 3,
+        "1": 2,
+        "6": 1
+      }
+    },
+    "dermamnist_c128": {
+      "npz": "results/external_data/round3_128/dermamnist_c128_prepared.npz",
+      "npz_sha256": "9a123e97bc571503e4ddb12b9e9ec78e190fe5aacd38dac903a5752493d89d26",
+      "provenance": "results/external_data/round3_128/dermamnist_c128_provenance.json",
+      "provenance_sha256": "b16bfab357adae4b6c8af4c5b46b1696ca2aa03f4b630ab34fa61e1e3b66c8ee",
+      "mask": "results/round7/support_sensitivity/dermamnist_c128_test_mask.csv",
+      "mask_sha256": "1c6a2bd9c72ebd1195238dfccb73d1d22661694bc85391197f2bdb8e4266bf65",
+      "audit": {
+        "dataset": "dermamnist_c128",
+        "train_images": 8215,
+        "validation_images": 573,
+        "test_images": 1227,
+        "retained_test_images": 1227,
+        "excluded_test_images": 0,
+        "train_unique_rasters": 8213,
+        "validation_unique_rasters": 573,
+        "test_unique_rasters": 1227,
+        "train_validation_shared_unique_rasters": 0,
+        "train_test_shared_unique_rasters": 0,
+        "validation_test_shared_unique_rasters": 0
+      },
+      "excluded_by_class": {}
+    }
+  },
+  "tables": {
+    "results/round7/support_sensitivity/tables/interactions.csv": "d9f1e662ef57aa9c61cf26caeb999b9dd7e1cd9bdd8fbcbc0c0b530fede3f7e3",
+    "results/round7/support_sensitivity/tables/contrasts.csv": "56dcbc57cce8738a50ab5bc863d66bf2a56880ae2a92e4327bfd5e0db35c5559",
+    "results/round7/support_sensitivity/tables/per_run.csv": "3835d9ac15b67daa1245f8f66c20c70a9bac4d2fc6d12db8373d4dcbfacfd794"
+  }
+}

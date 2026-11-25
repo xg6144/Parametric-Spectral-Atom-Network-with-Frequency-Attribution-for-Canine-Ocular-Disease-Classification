@@ -1,0 +1,441 @@
+{
+  "definitions": {
+    "ece": "top-label ECE with 15 equal-width bins",
+    "classwise_ece": "mean one-vs-rest ECE with 15 equal-width bins",
+    "brier_score": "mean(sum_c((p_c-y_c)^2)); not divided by C",
+    "pr_auc": "average precision"
+  },
+  "metrics": {
+    "accuracy": 0.8010471204188482,
+    "balanced_accuracy": 0.5675463211600429,
+    "macro_f1": 0.49927736704767156,
+    "weighted_f1": 0.8181323621044715,
+    "macro_precision": 0.47770921452137205,
+    "weighted_precision": 0.8499773762454568,
+    "macro_recall": 0.5675463211600429,
+    "weighted_recall": 0.8010471204188482,
+    "cohen_kappa": 0.5306990444715856,
+    "mcc": 0.5385739890794446,
+    "ece": 0.07883302848459546,
+    "brier_score": 0.28927748314745755,
+    "nll": 0.5805579300260347,
+    "classwise_ece": 0.03870381841065179,
+    "macro_auc_ovr": 0.9376164344559698,
+    "weighted_auc_ovr": 0.9432420533616698,
+    "macro_auc_ovo": 0.8922938002579395,
+    "macro_pr_auc": 0.47931809222908833,
+    "weighted_pr_auc": 0.8745158833467283
+  },
+  "per_class": [
+    {
+      "class": "actinic keratoses and intraepithelial carcinoma",
+      "class_index": 0,
+      "support": 19,
+      "precision": 0.3684210526315789,
+      "sensitivity": 0.7368421052631579,
+      "recall": 0.7368421052631579,
+      "specificity": 0.9566787003610109,
+      "f1": 0.49122807017543857,
+      "roc_auc_ovr": 0.9573437203116094,
+      "pr_auc": 0.3927915566642541,
+      "ece_ovr": 0.03928880543375861,
+      "tp": 14,
+      "fn": 5,
+      "fp": 24,
+      "tn": 530
+    },
+    {
+      "class": "basal cell carcinoma",
+      "class_index": 1,
+      "support": 22,
+      "precision": 0.45,
+      "sensitivity": 0.4090909090909091,
+      "recall": 0.4090909090909091,
+      "specificity": 0.9800362976406534,
+      "f1": 0.42857142857142855,
+      "roc_auc_ovr": 0.9445636033657812,
+      "pr_auc": 0.4974941183032256,
+      "ece_ovr": 0.030662742801937398,
+      "tp": 9,
+      "fn": 13,
+      "fp": 11,
+      "tn": 540
+    },
+    {
+      "class": "benign keratosis-like lesions",
+      "class_index": 2,
+      "support": 50,
+      "precision": 0.6285714285714286,
+      "sensitivity": 0.44,
+      "recall": 0.44,
+      "specificity": 0.9751434034416826,
+      "f1": 0.5176470588235295,
+      "roc_auc_ovr": 0.9099426386233269,
+      "pr_auc": 0.6138854878980066,
+      "ece_ovr": 0.036222411438120515,
+      "tp": 22,
+      "fn": 28,
+      "fp": 13,
+      "tn": 510
+    },
+    {
+      "class": "dermatofibroma",
+      "class_index": 3,
+      "support": 5,
+      "precision": 0.125,
+      "sensitivity": 0.2,
+      "recall": 0.2,
+      "specificity": 0.9876760563380281,
+      "f1": 0.15384615384615385,
+      "roc_auc_ovr": 0.8982394366197184,
+      "pr_auc": 0.10149962401976582,
+      "ece_ovr": 0.01198519541053375,
+      "tp": 1,
+      "fn": 4,
+      "fp": 7,
+      "tn": 561
+    },
+    {
+      "class": "melanoma",
+      "class_index": 4,
+      "support": 22,
+      "precision": 0.26,
+      "sensitivity": 0.5909090909090909,
+      "recall": 0.5909090909090909,
+      "specificity": 0.9328493647912885,
+      "f1": 0.3611111111111111,
+      "roc_auc_ovr": 0.9148655337403069,
+      "pr_auc": 0.3098312353109004,
+      "ece_ovr": 0.05822807212452181,
+      "tp": 13,
+      "fn": 9,
+      "fp": 37,
+      "tn": 514
+    },
+    {
+      "class": "melanocytic nevi",
+      "class_index": 5,
+      "support": 448,
+      "precision": 0.9564164648910412,
+      "sensitivity": 0.8816964285714286,
+      "recall": 0.8816964285714286,
+      "specificity": 0.856,
+      "f1": 0.9175377468060395,
+      "roc_auc_ovr": 0.9474464285714285,
+      "pr_auc": 0.9854729227271934,
+      "ece_ovr": 0.08568559329026912,
+      "tp": 395,
+      "fn": 53,
+      "fp": 18,
+      "tn": 107
+    },
+    {
+      "class": "vascular lesions",
+      "class_index": 6,
+      "support": 7,
+      "precision": 0.5555555555555556,
+      "sensitivity": 0.7142857142857143,
+      "recall": 0.7142857142857143,
+      "specificity": 0.9929328621908127,
+      "f1": 0.625,
+      "roc_auc_ovr": 0.9909136799596163,
+      "pr_auc": 0.45425170068027215,
+      "ece_ovr": 0.008853908375421384,
+      "tp": 5,
+      "fn": 2,
+      "fp": 4,
+      "tn": 562
+    }
+  ],
+  "calibration_bins": [
+    {
+      "bin": 1,
+      "lower": 0.0,
+      "upper": 0.06666666666666667,
+      "count": 0,
+      "weight": 0.0,
+      "average_confidence": null,
+      "average_accuracy": null,
+      "gap": null
+    },
+    {
+      "bin": 2,
+      "lower": 0.06666666666666667,
+      "upper": 0.13333333333333333,
+      "count": 0,
+      "weight": 0.0,
+      "average_confidence": null,
+      "average_accuracy": null,
+      "gap": null
+    },
+    {
+      "bin": 3,
+      "lower": 0.13333333333333333,
+      "upper": 0.2,
+      "count": 0,
+      "weight": 0.0,
+      "average_confidence": null,
+      "average_accuracy": null,
+      "gap": null
+    },
+    {
+      "bin": 4,
+      "lower": 0.2,
+      "upper": 0.26666666666666666,
+      "count": 0,
+      "weight": 0.0,
+      "average_confidence": null,
+      "average_accuracy": null,
+      "gap": null
+    },
+    {
+      "bin": 5,
+      "lower": 0.26666666666666666,
+      "upper": 0.3333333333333333,
+      "count": 3,
+      "weight": 3.0,
+      "average_confidence": 0.3277309053067105,
+      "average_accuracy": 0.6666666666666666,
+      "gap": 0.3389357613599561
+    },
+    {
+      "bin": 6,
+      "lower": 0.3333333333333333,
+      "upper": 0.4,
+      "count": 7,
+      "weight": 7.0,
+      "average_confidence": 0.37324609371530343,
+      "average_accuracy": 0.42857142857142855,
+      "gap": 0.05532533485612512
+    },
+    {
+      "bin": 7,
+      "lower": 0.4,
+      "upper": 0.4666666666666667,
+      "count": 11,
+      "weight": 11.0,
+      "average_confidence": 0.42250038262206857,
+      "average_accuracy": 0.6363636363636364,
+      "gap": 0.21386325374156778
+    },
+    {
+      "bin": 8,
+      "lower": 0.4666666666666667,
+      "upper": 0.5333333333333333,
+      "count": 22,
+      "weight": 22.0,
+      "average_confidence": 0.503402502752788,
+      "average_accuracy": 0.36363636363636365,
+      "gap": 0.13976613911642433
+    },
+    {
+      "bin": 9,
+      "lower": 0.5333333333333333,
+      "upper": 0.6,
+      "count": 35,
+      "weight": 35.0,
+      "average_confidence": 0.5665271613197858,
+      "average_accuracy": 0.5714285714285714,
+      "gap": 0.004901410108785642
+    },
+    {
+      "bin": 10,
+      "lower": 0.6,
+      "upper": 0.6666666666666666,
+      "count": 28,
+      "weight": 28.0,
+      "average_confidence": 0.6339846720831304,
+      "average_accuracy": 0.4642857142857143,
+      "gap": 0.16969895779741606
+    },
+    {
+      "bin": 11,
+      "lower": 0.6666666666666666,
+      "upper": 0.7333333333333333,
+      "count": 29,
+      "weight": 29.0,
+      "average_confidence": 0.7067363162109522,
+      "average_accuracy": 0.27586206896551724,
+      "gap": 0.430874247245435
+    },
+    {
+      "bin": 12,
+      "lower": 0.7333333333333333,
+      "upper": 0.8,
+      "count": 15,
+      "weight": 15.0,
+      "average_confidence": 0.7713802874095373,
+      "average_accuracy": 0.3333333333333333,
+      "gap": 0.43804695407620403
+    },
+    {
+      "bin": 13,
+      "lower": 0.8,
+      "upper": 0.8666666666666667,
+      "count": 24,
+      "weight": 24.0,
+      "average_confidence": 0.8335077693855041,
+      "average_accuracy": 0.75,
+      "gap": 0.08350776938550408
+    },
+    {
+      "bin": 14,
+      "lower": 0.8666666666666667,
+      "upper": 0.9333333333333333,
+      "count": 37,
+      "weight": 37.0,
+      "average_confidence": 0.8979283441476997,
+      "average_accuracy": 0.6486486486486487,
+      "gap": 0.24927969549905105
+    },
+    {
+      "bin": 15,
+      "lower": 0.9333333333333333,
+      "upper": 1.0,
+      "count": 362,
+      "weight": 362.0,
+      "average_confidence": 0.9782408204137267,
+      "average_accuracy": 0.9696132596685083,
+      "gap": 0.008627560745218421
+    }
+  ],
+  "per_class_ece": {
+    "actinic keratoses and intraepithelial carcinoma": 0.03928880543375861,
+    "basal cell carcinoma": 0.030662742801937398,
+    "benign keratosis-like lesions": 0.036222411438120515,
+    "dermatofibroma": 0.01198519541053375,
+    "melanoma": 0.05822807212452181,
+    "melanocytic nevi": 0.08568559329026912,
+    "vascular lesions": 0.008853908375421384
+  },
+  "confusion_matrix": [
+    [
+      14,
+      1,
+      3,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      9,
+      9,
+      1,
+      2,
+      1,
+      0,
+      0
+    ],
+    [
+      6,
+      3,
+      22,
+      1,
+      7,
+      11,
+      0
+    ],
+    [
+      2,
+      0,
+      0,
+      1,
+      0,
+      2,
+      0
+    ],
+    [
+      3,
+      0,
+      2,
+      1,
+      13,
+      3,
+      0
+    ],
+    [
+      4,
+      7,
+      7,
+      3,
+      28,
+      395,
+      4
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      5
+    ]
+  ],
+  "confusion_matrix_normalized": [
+    [
+      0.7368421052631579,
+      0.05263157894736842,
+      0.15789473684210525,
+      0.0,
+      0.0,
+      0.05263157894736842,
+      0.0
+    ],
+    [
+      0.4090909090909091,
+      0.4090909090909091,
+      0.045454545454545456,
+      0.09090909090909091,
+      0.045454545454545456,
+      0.0,
+      0.0
+    ],
+    [
+      0.12,
+      0.06,
+      0.44,
+      0.02,
+      0.14,
+      0.22,
+      0.0
+    ],
+    [
+      0.4,
+      0.0,
+      0.0,
+      0.2,
+      0.0,
+      0.4,
+      0.0
+    ],
+    [
+      0.13636363636363635,
+      0.0,
+      0.09090909090909091,
+      0.045454545454545456,
+      0.5909090909090909,
+      0.13636363636363635,
+      0.0
+    ],
+    [
+      0.008928571428571428,
+      0.015625,
+      0.015625,
+      0.006696428571428571,
+      0.0625,
+      0.8816964285714286,
+      0.008928571428571428
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.7142857142857143
+    ]
+  ]
+}

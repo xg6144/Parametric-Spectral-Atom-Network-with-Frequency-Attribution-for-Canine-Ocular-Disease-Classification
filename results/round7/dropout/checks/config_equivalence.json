@@ -1,0 +1,35 @@
+{
+  "reference": "results/round4/long/canine_psan_ad0_c2_s42_long100",
+  "matched_training_fields": [
+    "lr",
+    "weight_decay",
+    "epochs",
+    "patience",
+    "warmup_epochs",
+    "batch_size",
+    "num_workers",
+    "img_size",
+    "ema_decay",
+    "gradient_clip",
+    "precision",
+    "stochastic_depth",
+    "pretrained",
+    "atoms",
+    "atom_dropout",
+    "num_classes",
+    "classes",
+    "split_sha256"
+  ],
+  "training_differences": {},
+  "unchanged_dependency_hashes": {
+    "experiments/common.py": true,
+    "experiments/training.py": true,
+    "models/psan.py": true,
+    "evaluation_metrics.py": true
+  },
+  "new_seeds": [
+    43,
+    44
+  ],
+  "train_loop": "unchanged experiments.round6.train; first-epoch replay additionally required"
+}

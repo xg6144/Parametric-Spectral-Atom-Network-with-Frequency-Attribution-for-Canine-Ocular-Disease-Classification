@@ -1,0 +1,24 @@
+{
+  "unit": "ncv_lowrank16_fold3",
+  "experiment": "ncv",
+  "arm": "lowrank16",
+  "fold": 3,
+  "candidate": {
+    "id": "c2",
+    "lr": 0.0005,
+    "weight_decay": 0.05
+  },
+  "validation_scores": [
+    0.4244286741786759,
+    0.47873439209332697,
+    0.5073720702156974
+  ],
+  "screening_tags": [
+    "canine_lowrank16_c0_s42_ncv3_screening",
+    "canine_lowrank16_c1_s42_ncv3_screening",
+    "canine_lowrank16_c2_s42_ncv3_screening"
+  ],
+  "objective": "highest best-epoch validation Macro F1; ties use earlier candidate order",
+  "protocol_sha256": "26cec135560ed2ed681f67267af0c65ba0d0ced11f725bd7f2d89790fff65ed0",
+  "test_used": false
+}

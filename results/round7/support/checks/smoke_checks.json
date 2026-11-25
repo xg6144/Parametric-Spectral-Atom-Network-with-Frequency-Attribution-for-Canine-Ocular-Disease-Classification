@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "tag": "bloodmnist128_psan_ad0_f10_c2_s42_final",
+      "passed": true,
+      "epochs": 1,
+      "test_predictions_generated": false
+    },
+    {
+      "tag": "bloodmnist128_gfnet_matched_f10_c2_s42_final",
+      "passed": true,
+      "epochs": 1,
+      "test_predictions_generated": false
+    },
+    {
+      "tag": "bloodmnist128_lowrank16_f10_c2_s42_final",
+      "passed": true,
+      "epochs": 1,
+      "test_predictions_generated": false
+    },
+    {
+      "tag": "dermamnist_c128_psan_ad0_f10_c2_s42_final",
+      "passed": true,
+      "epochs": 1,
+      "test_predictions_generated": false
+    },
+    {
+      "tag": "dermamnist_c128_gfnet_matched_f10_c2_s42_final",
+      "passed": true,
+      "epochs": 1,
+      "test_predictions_generated": false
+    },
+    {
+      "tag": "dermamnist_c128_lowrank16_f10_c2_s42_final",
+      "passed": true,
+      "epochs": 1,
+      "test_predictions_generated": false
+    }
+  ],
+  "support_source_sha256": "33569fd7d1c4b10d669d30c8a0654c4bcff5d7311f8a23c4c45ec4ff9af1d889"
+}

@@ -1,0 +1,154 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "dataset": "bloodmnist128",
+      "seed": 42,
+      "fraction": 10,
+      "images": 1200,
+      "groups": 1200,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "bloodmnist128",
+      "seed": 42,
+      "fraction": 25,
+      "images": 2994,
+      "groups": 2994,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "bloodmnist128",
+      "seed": 42,
+      "fraction": 100,
+      "images": 11959,
+      "groups": 11959,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "bloodmnist128",
+      "seed": 43,
+      "fraction": 10,
+      "images": 1200,
+      "groups": 1200,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "bloodmnist128",
+      "seed": 43,
+      "fraction": 25,
+      "images": 2994,
+      "groups": 2994,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "bloodmnist128",
+      "seed": 43,
+      "fraction": 100,
+      "images": 11959,
+      "groups": 11959,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "bloodmnist128",
+      "seed": 44,
+      "fraction": 10,
+      "images": 1200,
+      "groups": 1200,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "bloodmnist128",
+      "seed": 44,
+      "fraction": 25,
+      "images": 2994,
+      "groups": 2994,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "bloodmnist128",
+      "seed": 44,
+      "fraction": 100,
+      "images": 11959,
+      "groups": 11959,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "dermamnist_c128",
+      "seed": 42,
+      "fraction": 10,
+      "images": 836,
+      "groups": 579,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "dermamnist_c128",
+      "seed": 42,
+      "fraction": 25,
+      "images": 2037,
+      "groups": 1443,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "dermamnist_c128",
+      "seed": 42,
+      "fraction": 100,
+      "images": 8215,
+      "groups": 5758,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "dermamnist_c128",
+      "seed": 43,
+      "fraction": 10,
+      "images": 831,
+      "groups": 579,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "dermamnist_c128",
+      "seed": 43,
+      "fraction": 25,
+      "images": 2058,
+      "groups": 1443,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "dermamnist_c128",
+      "seed": 43,
+      "fraction": 100,
+      "images": 8215,
+      "groups": 5758,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "dermamnist_c128",
+      "seed": 44,
+      "fraction": 10,
+      "images": 808,
+      "groups": 579,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "dermamnist_c128",
+      "seed": 44,
+      "fraction": 25,
+      "images": 2011,
+      "groups": 1443,
+      "expected_class_masses_match": true
+    },
+    {
+      "dataset": "dermamnist_c128",
+      "seed": 44,
+      "fraction": 100,
+      "images": 8215,
+      "groups": 5758,
+      "expected_class_masses_match": true
+    }
+  ],
+  "support_source_sha256": "33569fd7d1c4b10d669d30c8a0654c4bcff5d7311f8a23c4c45ec4ff9af1d889",
+  "nonfilter_initialization": "identical all3arms",
+  "initial_psan_lowrank": "allclose atol/rtol1e-5",
+  "group_disjointness": true,
+  "support_intervention_results_read": false
+}

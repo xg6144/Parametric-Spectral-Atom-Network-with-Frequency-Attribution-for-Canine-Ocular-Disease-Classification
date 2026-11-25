@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETED",
+  "post_hoc": true,
+  "protocol_sha256": "cb8901124c1546fb1b3ca71bfca9d258d7e857a44443b26704d94269ea74415e",
+  "source_sha256": "cc670e9b49bf35483b114e021c17056fd43369749f7e05272c68a0a3a8911ddc",
+  "validation_partition_sha256": "58e527f4b0e4c44a81ecce69bce54d20e0d55f8aa66efa03bfe8f2269b742d79",
+  "models": [
+    "psan",
+    "gfnet_matched"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "test_selection": false,
+  "scope": "Within-corpus retrospective calibration; unknown patient dependence remains; group bootstrap conditional on fitted calibrators, not fit uncertainty.",
+  "artifacts": {
+    "summary.csv": "49b77049649295458b0df595977fd1d0e46313da0b706ac4efcb4242f97e7633",
+    "psan_crossed_bootstrap.npz": "b15581207398d853ebfc7227db6b6ba810ad6ff4de44f6f5eaedd75e8b3433d7",
+    "psan_s44_test_probabilities.npz": "77be07957137ad2ce3f810aaf3fdd96c0471773d6de1ecaf21acd2e96eb9454a",
+    "gfnet_matched_s43_parameters.json": "cba06a8044c7b4e6dd53b4abd7b990352401fec8011fce97161a30f22b1bad71",
+    "gfnet_matched_crossed_bootstrap.npz": "5be1d977d9ababcac13beadec9beb348d172def773ed0939ac89845831237e6e",
+    "psan_s42_test_probabilities.npz": "9fb7fbfc24c77b5039da2464d28eebbdffe3eda920d428e9049250b303cac735",
+    "gfnet_matched_s44_parameters.json": "bec538532dcd172da81b50aa80b1605ae8c0a4dfa305d06f849f2d4abd9ffb64",
+    "psan_s42_parameters.json": "697455c450f6812f7545ff46422db55ae98341bed229552171ff7a0e2438d8d1",
+    "metrics_per_run.csv": "e33a4fdd170bf48e9555e99ec8877c712246c34fd1270d080d8c4bde893540c6",
+    "gfnet_matched_s43_test_probabilities.npz": "c084f9a922bcadefa52a7e734496560fba48bc4612cfc386983d5b4d0ce0bf91",
+    "validation_partition.csv": "58e527f4b0e4c44a81ecce69bce54d20e0d55f8aa66efa03bfe8f2269b742d79",
+    "psan_s44_parameters.json": "1e53a3dae08ec4140532c618adb107c4da08381d0dd8f0b64c6be250922aac0e",
+    "validation_trials.csv": "f6212a503a611f0ada345ca703cacfa893e109f71de68942bc6c2e4570ea04e8",
+    "contrasts.csv": "c774f3bca1914200b7b22793a4723cae039b1af9e8ee507750d781269b034b33",
+    "psan_s43_test_probabilities.npz": "51593ef154a950369e8ca92a7121f29cabc9983f8d2b3994ee865cd416f3c1cf",
+    "gfnet_matched_s44_test_probabilities.npz": "87aba5cfeea27fbb09aec5e2f734b4fb8c95e2a970a8b9d0ae6daf4f003eafe1",
+    "gfnet_matched_s42_test_probabilities.npz": "bec6f54686813d1f12552b7eff64794a8f538442ec53bc280d6db617d9c6e27f",
+    "gfnet_matched_s42_parameters.json": "a6d9d9ceaa8e1564eefd05b5dca27fb6191c7d586e917fd88fc44e38d49bb0b6",
+    "classwise_ece_per_run.csv": "50a6a6be9f10e991e1c555880e83349d542c256f61572a2d17694f16129ff8b5",
+    "psan_s43_parameters.json": "5404412026dac18360998a6347670c019420844c162280d347271de2f6235205"
+  }
+}
